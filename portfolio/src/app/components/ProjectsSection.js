@@ -9,17 +9,17 @@ export default function ProjectsSection() {
                 <div className="Project1 h-screen">
                     <h3>Parting Gifts</h3>
                     <p>Encrypted digital will platform that delivers your final messages and gifts when you're gone.</p>
-                    <Laptop />
+                    <Laptop screenImage="/images/parting.png" />
                 </div>
                 <div className="Project2 h-screen">
                     <h3>Amazon FBA Sourcing Optimizer</h3>
                     <p>C++ tool that automates Amazon product research, saving 6+ hours daily and driving 20K+ sales.</p>
-                    <Laptop />
+                    <Laptop screenImage="/images/excel.png" />
                 </div>
                 <div className="Project3 h-screen">
                     <h3>Vault</h3>
                     <p>Time capsule social media app to lock away memories today and unlock them in the future.</p>
-                    <Laptop />
+                    <Laptop screenImage="/images/vaul.png" />
                 </div>
             </div>
         </section>
