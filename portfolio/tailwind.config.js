@@ -5,6 +5,7 @@ export default {
     theme: {
         extend: {
             fontFamily: {
+                signature: ['var(--font-signature)', 'cursive'],
                 inter: ["Inter", "sans-serif"]
             },
         },
