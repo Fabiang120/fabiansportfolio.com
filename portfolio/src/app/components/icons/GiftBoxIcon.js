@@ -10,7 +10,7 @@ export default function GiftBoxIcon({ className = "" }) {
                 const length = path.getTotalLength();
                 path.style.strokeDasharray = length;
                 path.style.strokeDashoffset = length;
-                path.style.animation = `drawLine 0.8s ease-out ${index * 0.2}s forwards`;
+                path.style.animation = `drawLine 3s ease-out ${index * 0.4}s forwards`;
             }
         });
     }, []);
@@ -18,11 +18,10 @@ export default function GiftBoxIcon({ className = "" }) {
     return (
         <svg
             className={className}
-            width="60"
-            height="60"
+            width="80"
+            height="80"
             viewBox="0 0 60 60"
             fill="none"
-            xmlns="http://www.w3.org/2000/svg"
         >
             <style>
                 {`

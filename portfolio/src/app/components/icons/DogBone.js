@@ -8,7 +8,7 @@ export default function DogBone({ className }) {
             const length = path.current.getTotalLength();
             path.current.style.strokeDasharray = length;
             path.current.style.strokeDashoffset = length;
-            path.current.style.animation = `drawLine 2s ease-in forwards, fillIn 2s ease-in forwards`;
+            path.current.style.animation = `drawLine 3s ease-in forwards, fillIn 3s ease-in forwards`;
         }
     });
     return (
