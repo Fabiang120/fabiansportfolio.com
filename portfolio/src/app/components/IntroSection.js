@@ -2,7 +2,6 @@
 import { useState } from "react";
 import { DisplacementSphere } from "./canvas/DisplacementSphere";
 
-
 export default function IntroSection() {
     return (
         // We need a animated image in the back ground screen must be transparent

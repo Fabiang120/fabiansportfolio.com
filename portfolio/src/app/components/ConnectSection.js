@@ -18,8 +18,8 @@ export default function ConnectSection() {
                 </div>
 
                 {/* lets put the cuban bird in a svg with the different colors*/}
-                <p className="mt-4 text-lg leading-relaxed text-gray-300">Let's connect and explore opportunities together.</p>
-                <p className="mt-4 text-lg leading-relaxed text-gray-300">Let's connect and explore opportunities together.</p>
+                <p className="mt-4 text-lg leading-relaxed text-gray-300">My name is Fabian, and I dedicate most of my time to studying at the University of Florida and expanding my business, Fabian’s General Corner LLC. My work spans full-stack engineering, systems programming, applied machine learning, and API-driven automation. Currently, I’ve been focused on crafting clean, modern web experiences with Tailwind and Next.js, alongside developing a Minecraft mod. If you’re interested in exploring more of my work, scroll down to the next section!</p>
+                <p className="mt-4 text-lg leading-relaxed text-gray-300">Outside of my work, I push myself through boxing training, weightlifting, running, and disciplined nutrition planning. P.S. The bird featured here is the tocororo, also known as the “freedom bird”, the national bird of Cuba, representing resilience and independence.</p>
             </div>
             <div className="selfimage flex-1 h-full border border-white">
                 Coming soon..

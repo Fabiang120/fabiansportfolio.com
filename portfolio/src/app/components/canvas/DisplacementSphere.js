@@ -74,10 +74,10 @@ export function DisplacementSphere() {
         sphere.current = new Mesh(geometry, material);
 
         // Gotta make sure sphere
-        sphere.current.position.set(23, 15, 0);
+        sphere.current.position.set(20, 15, 0);
         scene.current.add(sphere.current);
-        const light = new DirectionalLight(0xffffff, 1.8);
-        const ambientLight = new AmbientLight(0xffffff, 2.7);
+        const light = new DirectionalLight(0xffffff, 2.0);
+        const ambientLight = new AmbientLight(0xffffff, 1.4);
         scene.current.add(ambientLight);
         light.position.set(100, 100, 200);
 
