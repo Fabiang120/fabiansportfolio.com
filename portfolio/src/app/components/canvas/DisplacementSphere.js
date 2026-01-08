@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import styles from "./displacement-sphere.module.css";
+import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js"
 
 
 import {
@@ -43,7 +44,8 @@ export function DisplacementSphere() {
         const height = window.innerHeight
         const adjustedHeight = height + height * 0.3;
         // Remember to test the 100 hardclips anything the far value aka
-        camera.current = new PerspectiveCamera(54, width / height, 0.1, 100);
+        // Actual high neededed is 54
+        camera.current = new PerspectiveCamera(90, width / adjustedHeight, 0.1, 100);
         camera.current.position.z = 52;
 
         renderer.current = new WebGLRenderer({
@@ -82,6 +84,7 @@ export function DisplacementSphere() {
         light.position.set(100, 100, 200);
 
         scene.current.add(light);
+        const controls = new OrbitControls(camera.current, canvasRef.current)
 
         const animate = () => {
             requestAnimationFrame(animate);
@@ -96,7 +99,7 @@ export function DisplacementSphere() {
                 uniforms.current.time.value = 0.00005 * (Date.now() - start.current);
             }
             // Sphere rotating around y and camera is above in z axis
-
+            controls.update()
             renderer.current.render(scene.current, camera.current);
         };
 
@@ -106,9 +109,9 @@ export function DisplacementSphere() {
             const width = window.innerWidth;
             const height = window.innerHeight;
             const adjustedHeight = height + height * 0.3;
-            camera.current.aspect = width / height;
-            camera.current.updateProjectionMatrix();
             renderer.current.setSize(width, adjustedHeight);
+            camera.current.aspect = width / adjustedHeight;
+            camera.current.updateProjectionMatrix();
         }
         window.addEventListener('resize', handleResize);
 

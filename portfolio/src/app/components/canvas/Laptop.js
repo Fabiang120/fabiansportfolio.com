@@ -1,7 +1,7 @@
 "use client";
 import React, { useRef, useState, useEffect, useMemo } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
-import { useGLTF, OrbitControls, useTexture } from '@react-three/drei';
+import { useGLTF, OrbitControls, useTexture, Html } from '@react-three/drei';
 
 function LaptopModel({ isOpen, screenImage }) {
     const { scene } = useGLTF('/Laptop.glb');
@@ -96,19 +96,18 @@ export default function Laptop({ screenImage }) {
     }, []);
 
     return (
-        <div ref={containerRef} style={{
-            width: "100%",
-            height: "100%",
-            top: 0,
-            left: 0,
-            zIndex: 0,
-            pointerEvents: "none"
-        }}>
-            <Canvas camera={{ position: [0, 2, 14], fov: 45 }}>
-                <ambientLight intensity={0.9} />
-                <directionalLight position={[5, 5, 5]} intensity={1} />
-                <LaptopModel isOpen={isVisible} screenImage={screenImage} />
-            </Canvas>
+        <div ref={containerRef} className="relative w-full h-full">
+            {/* Text layer - behind */}
+            <div className="absolute inset-0 flex items-end justify-center p-8 z-0">
+            </div>
+            {/* Canvas layer - in front */}
+            <div className="absolute inset-0 z-10" style={{ pointerEvents: "none" }}>
+                <Canvas camera={{ position: [0, 2, 14], fov: 45 }}>
+                    <ambientLight intensity={0.9} />
+                    <directionalLight position={[5, 5, 5]} intensity={1} />
+                    <LaptopModel isOpen={isVisible} screenImage={screenImage} />
+                </Canvas>
+            </div>
         </div>
     );
 }
