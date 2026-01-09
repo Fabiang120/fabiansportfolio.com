@@ -97,9 +97,6 @@ export default function Laptop({ screenImage }) {
 
     return (
         <div ref={containerRef} className="relative w-full h-full">
-            {/* Text layer - behind */}
-            <div className="absolute inset-0 flex items-end justify-center p-8 z-0">
-            </div>
             {/* Canvas layer - in front */}
             <div className="absolute inset-0 z-10" style={{ pointerEvents: "none" }}>
                 <Canvas camera={{ position: [0, 2, 14], fov: 45 }}>
