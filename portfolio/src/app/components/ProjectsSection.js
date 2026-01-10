@@ -3,6 +3,7 @@ import Laptop from "./canvas/Laptop";
 import GiftBoxIcon from "./icons/GiftBoxIcon";
 import DogBone from "./icons/DogBone";
 import Vault from "./icons/Vault";
+import ProjectTag from "./ProjectTag";
 
 export default function ProjectsSection() {
     return (
@@ -16,7 +17,11 @@ export default function ProjectsSection() {
                         <button>View Project</button>
                     </div>
                     <div className="laptop w-1/2 relative">
-                        <div className="min-w-[180%] aspect-[12/10] relative left-[14%] top-[6%]">
+                        {/* ProjectTag - positioned absolutely behind */}
+                        <ProjectTag className="absolute w-full right-[-70%] bottom-[30%] translate-y-1/2 z-0" />
+
+                        {/* Laptop wrapper - in front */}
+                        <div className="min-w-[180%] aspect-[12/10] relative left-[14%] top-[6%] z-10">
                             <Laptop screenImage="/images/parting.png" />
                         </div>
                     </div>
@@ -29,12 +34,15 @@ export default function ProjectsSection() {
                         <button>View Project</button>
                     </div>
                     <div className="laptop w-1/2 relative">
-                        <div className="min-w-[180%] aspect-[12/10] relative left-[14%] top-[6%]">
+                        {/* ProjectTag - positioned absolutely behind */}
+                        <ProjectTag className="absolute w-full right-[-70%] bottom-[30%] translate-y-1/2 z-0" />
+
+                        {/* Laptop wrapper - in front */}
+                        <div className="min-w-[180%] aspect-[12/10] relative left-[14%] top-[6%] z-10">
                             <Laptop screenImage="/images/excel.png" />
                         </div>
                     </div>
                 </div>
-
                 <div className="Project3 px-50 h-screen flex items-center relative border border-white">
                     <div className="z-10 w-1/3">
                         <Vault className="text-cyan-400 mb-4" />
@@ -43,7 +51,11 @@ export default function ProjectsSection() {
                         <button>View Project</button>
                     </div>
                     <div className="laptop w-1/2 relative">
-                        <div className="min-w-[180%] aspect-[12/10] relative left-[14%] top-[6%]">
+                        {/* ProjectTag - positioned absolutely behind */}
+                        <ProjectTag className="absolute w-full right-[-70%] bottom-[30%] translate-y-1/2 z-0" />
+
+                        {/* Laptop wrapper - in front */}
+                        <div className="min-w-[180%] aspect-[12/10] relative left-[14%] top-[6%] z-10">
                             <Laptop screenImage="/images/vaul.png" />
                         </div>
                     </div>
