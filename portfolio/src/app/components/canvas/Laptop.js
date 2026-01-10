@@ -1,110 +1,59 @@
-"use client";
-import React, { useRef, useState, useEffect, useMemo } from 'react';
-import { Canvas, useFrame } from '@react-three/fiber';
-import { useGLTF, OrbitControls, useTexture, Html } from '@react-three/drei';
 
-function LaptopModel({ isOpen, screenImage }) {
-    const { scene } = useGLTF('/Laptop.glb');
-    const modelRef = useRef();
-    const baseRotation = { x: 0.3, y: 29.8, z: 0 };
-    const screenTexture = useTexture(screenImage);
 
-    const clonedScene = useMemo(() => {
-        const clone = scene.clone();
-        clone.traverse((child) => {
-            if (child.isMesh) {
-                child.material = child.material.clone();
-            }
-        });
-        return clone;
-    }, [scene]);
+import { useRef } from 'react'
+import { Canvas } from '@react-three/fiber'
+import { useGLTF, useTexture } from '@react-three/drei'
+import { useHelper } from '@react-three/drei'
+import { DirectionalLightHelper } from 'three'
 
-    useEffect(() => {
-        if (!screenTexture || !clonedScene) return;
-        screenTexture.flipY = false;
-        screenTexture.rotation = Math.PI / 2;
-        screenTexture.center.set(0.5, 0.5);
-        screenTexture.repeat.set(3, 3);
-        screenTexture.offset.set(-0.62, -0.3);
-        screenTexture.wrapS = 1000;
-        screenTexture.wrapT = 1000;
-        screenTexture.needsUpdate = true;
+export function Model({ screenImage, ...props }) {
+  const { nodes, materials } = useGLTF('/macbook-pro.glb')
+  const screenTexture = useTexture(screenImage);
+  screenTexture.flipY = false;
+  materials.Frame.color.set('#1f2025')
+  return (
+    <group {...props} dispose={null}>
+      <mesh geometry={nodes.Keyboard.geometry} material={materials.Frame}>
+        <mesh geometry={nodes.Body.geometry} material={materials.Frame} />
+        <mesh geometry={nodes.Touchbar.geometry} material={materials.Frame} />
+      </mesh>
+      <mesh geometry={nodes.Frame.geometry} material={materials.Frame} position={[0, -0.62, 0.047]}>
+        <mesh geometry={nodes.Logo.geometry} material={materials.Logo} position={[0, 1.2, -0.106]} />
+        <mesh geometry={nodes.Screen.geometry} position={[0, 1.2, -0.106]}>
+          <meshBasicMaterial map={screenTexture} />
+        </mesh>
+      </mesh>
+    </group>
+  );
+}
 
-        clonedScene.traverse((child) => {
-            if (child.isMesh) {
-                if (child.material?.name === 'DarkGray' ||
-                    child.material?.name === 'lighterGray') {
-                    child.material.color.set('#484848');
-                    child.material.needsUpdate = true;
-                }
+useGLTF.preload('/macbook-pro.glb')
 
-                if (child.material?.name === 'Screen') {
-                    child.material.map = screenTexture;
-                    child.material.emissiveMap = screenTexture;
-                    child.material.emissive.set('#ffffff');
-                    child.material.emissiveIntensity = 0.5;
-                    child.material.needsUpdate = true;
-                }
-            }
-        });
-    }, [screenTexture, clonedScene]);
-
-    useFrame((state) => {
-        if (!modelRef.current) return;
-
-        const time = state.clock.elapsedTime;
-        const baseY = -2;
-        const floatY = Math.sin(time * 1.5) * 0.1;
-        modelRef.current.position.y = baseY + floatY;
-
-        const mouseX = state.pointer.x;
-        const mouseY = state.pointer.y;
-        const targetY = baseRotation.y + mouseX * 0.1;
-        const targetX = baseRotation.x - mouseY * 0.5;
-        modelRef.current.rotation.y += (targetY - modelRef.current.rotation.y) * 0.011;
-        modelRef.current.rotation.x += (targetX - modelRef.current.rotation.x) * 0.01;
-    });
-
-    return (
-        <primitive
-            ref={modelRef}
-            object={clonedScene}
-            scale={7.5}
-            position={[0, 0, 1]}
-            rotation={[baseRotation.x, baseRotation.y, baseRotation.z]}
-        />
-    );
+function Lights() {
+  const lightRef = useRef();
+  useHelper(lightRef, DirectionalLightHelper, 1, 'red');
+  return (
+    <>
+      <ambientLight intensity={1.2} />
+      <directionalLight ref={lightRef} position={[0.5, 0, 0.866]} intensity={1.1} />
+      <directionalLight position={[-6, 2, 2]} intensity={0.8} />
+    </>
+  );
 }
 
 export default function Laptop({ screenImage }) {
-    const [isVisible, setIsVisible] = useState(false);
-    const containerRef = useRef(null);
 
-    useEffect(() => {
-        const observer = new IntersectionObserver(
-            ([entry]) => {
-                if (entry.isIntersecting) {
-                    setIsVisible(true);
-                }
-            },
-            { threshold: 0.5 }
-        );
-        if (containerRef.current) {
-            observer.observe(containerRef.current);
-        }
-        return () => observer.disconnect();
-    }, []);
-
-    return (
-        <div ref={containerRef} className="relative w-full h-full">
-            {/* Canvas layer - in front */}
-            <div className="absolute inset-0 z-10" style={{ pointerEvents: "none" }}>
-                <Canvas camera={{ position: [0, 2, 14], fov: 45 }}>
-                    <ambientLight intensity={0.9} />
-                    <directionalLight position={[5, 5, 5]} intensity={1} />
-                    <LaptopModel isOpen={isVisible} screenImage={screenImage} />
-                </Canvas>
-            </div>
-        </div>
-    );
+  return (
+    <div className="relative w-full aspect-[12/10]">
+      {/* Canvas layer - in front */}
+      <div className="absolute inset-0">
+        <Canvas camera={{ position: [0, 0, 8], fov: 36 }}>
+          {/* red is x, green is y, z is blue for axes helper */}
+          <Lights />
+          <Model position={[0, 0, 0]} screenImage={screenImage} />
+        </Canvas>
+      </div>
+    </div >
+  );
 }
+
