@@ -61,7 +61,7 @@ void main() {
     float pattern = sin(n * 20.0 + uTime) * 0.5 + 0.5;
 
     vec3 color1 = vec3(0.10, 0.10, 0.10);
-    vec3 color2 = vec3(0.20, 0.20, 0.20);
+    vec3 color2 = vec3(0.14, 0.14, 0.14);
     vec3 finalColor = mix(color1, color2, pattern);
     gl_FragColor = vec4(finalColor, 1.0);
 }

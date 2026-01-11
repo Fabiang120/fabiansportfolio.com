@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import styles from "./displacement-sphere.module.css";
-import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js"
+
 
 
 import {
@@ -84,7 +84,6 @@ export function DisplacementSphere() {
         light.position.set(100, 100, 200);
 
         scene.current.add(light);
-        const controls = new OrbitControls(camera.current, canvasRef.current)
 
         const animate = () => {
             requestAnimationFrame(animate);
@@ -99,7 +98,6 @@ export function DisplacementSphere() {
                 uniforms.current.time.value = 0.00005 * (Date.now() - start.current);
             }
             // Sphere rotating around y and camera is above in z axis
-            controls.update()
             renderer.current.render(scene.current, camera.current);
         };
 
