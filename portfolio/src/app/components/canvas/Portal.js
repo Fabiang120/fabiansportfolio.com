@@ -7,6 +7,7 @@ import { useGLTF, useTexture } from '@react-three/drei'
 import { DoubleSide } from 'three'
 import { vertexShader, fragmentShader } from './shaders/PortalS'
 import { useFrame } from '@react-three/fiber'
+import { useRouter } from 'next/navigation';
 
 export function Model(props) {
   const { nodes, materials } = useGLTF('/Portal.glb')
@@ -21,6 +22,10 @@ export function Model(props) {
       shaderRef.current.uniforms.uTime.value = state.clock.elapsedTime
     }
   })
+  const router = useRouter();
+  const handlePortal = (event) => {
+    router.push("/works");
+  }
   return (
     <group {...props} dispose={null}>
       <mesh geometry={nodes.Cube.geometry} position={[-1.079, 0.476, 1.563]} scale={[0.831, 1.093, 1.019]}>
@@ -125,7 +130,7 @@ export function Model(props) {
       <mesh geometry={nodes.Cube032.geometry} position={[0.041, 5.789, 1.612]} rotation={[-0.017, -0.001, 2.124]} scale={[-0.876, -0.603, -1.377]}>
         <meshStandardMaterial {...textures} />
       </mesh>
-      <mesh geometry={nodes.Circle.geometry} position={[3.185, 3.369, 1.96]}>
+      <mesh onClick={handlePortal} geometry={nodes.Circle.geometry} position={[3.185, 3.369, 1.96]}>
         <shaderMaterial ref={shaderRef} vertexShader={vertexShader} fragmentShader={fragmentShader} uniforms={{
           uTime: { value: 0 }
         }}

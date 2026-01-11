@@ -4,8 +4,14 @@ import GiftBoxIcon from "./icons/GiftBoxIcon";
 import DogBone from "./icons/DogBone";
 import Vault from "./icons/Vault";
 import ProjectTag from "./ProjectTag";
+import { useRouter } from 'next/navigation';
+
 
 export default function ProjectsSection() {
+    const router = useRouter();
+    const handleClick = (route) => {
+        router.push(`/${route}`)
+    }
     return (
         <section className="projects-section border flex flex-col justify-center relative border-white">
             <div className="projects-grid">
@@ -14,7 +20,7 @@ export default function ProjectsSection() {
                         <GiftBoxIcon className="text-cyan-400 mb-4" />
                         <h3 className="text-5xl font-semibold tracking-tight leading-tight">Parting Gifts</h3>
                         <p className="mt-4 text-lg leading-relaxed text-gray-300">Encrypted digital will platform</p>
-                        <button>View Project</button>
+                        <button onClick={() => handleClick("PartingGift")}>View Project</button>
                     </div>
                     <div className="laptop w-1/2 relative">
                         {/* ProjectTag - positioned absolutely behind */}
@@ -31,7 +37,7 @@ export default function ProjectsSection() {
                         <DogBone className="text-cyan-400 mb-4" />
                         <h3 className="text-5xl font-semibold tracking-tight leading-tight">Amazon FBA Sourcing Optimizer</h3>
                         <p className="mt-4 text-lg leading-relaxed text-gray-300">C++ tool that automates Amazon product research, saving 6+ hours daily and driving 20K+ sales.</p>
-                        <button>View Project</button>
+                        <button onClick={() => handleClick("FBA")}>View Project</button>
                     </div>
                     <div className="laptop w-1/2 relative">
                         {/* ProjectTag - positioned absolutely behind */}
@@ -48,7 +54,7 @@ export default function ProjectsSection() {
                         <Vault className="text-cyan-400 mb-4" />
                         <h3 className="text-5xl font-semibold tracking-tight leading-tight">Vault</h3>
                         <p className="mt-4 text-lg leading-relaxed text-gray-300">Time capsule social media app to lock away memories today and unlock them in the future.</p>
-                        <button>View Project</button>
+                        <button onClick={() => handleClick("Vault")}>View Project</button>
                     </div>
                     <div className="laptop w-1/2 relative">
                         {/* ProjectTag - positioned absolutely behind */}
