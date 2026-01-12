@@ -13,9 +13,9 @@ export default function ProjectsSection() {
         router.push(`/${route}`)
     }
     return (
-        <section className="projects-section border flex flex-col justify-center relative border-white">
+        <section className="projects-section flex flex-col justify-center relative ">
             <div className="projects-grid">
-                <div className="Project1 px-50 h-screen flex items-center relative border border-white overflow-hidden">
+                <div className="Project1 px-50 h-screen flex items-center relative  overflow-hidden">
                     <div className="textarea  z-10 w-1/3">
                         <GiftBoxIcon className="text-cyan-400 mb-4" />
                         <h3 className="text-5xl font-semibold tracking-tight leading-tight">Parting Gifts</h3>
@@ -32,7 +32,7 @@ export default function ProjectsSection() {
                         </div>
                     </div>
                 </div>
-                <div className="Project2 px-50 h-screen flex items-center relative border border-white">
+                <div className="Project2 px-50 h-screen flex items-center relative ">
                     <div className="textarea z-10 w-1/3">
                         <DogBone className="text-cyan-400 mb-4" />
                         <h3 className="text-5xl font-semibold tracking-tight leading-tight">Amazon FBA Sourcing Optimizer</h3>
@@ -49,7 +49,7 @@ export default function ProjectsSection() {
                         </div>
                     </div>
                 </div>
-                <div className="Project3 px-50 h-screen flex items-center relative border border-white">
+                <div className="Project3 px-50 h-screen flex items-center relative">
                     <div className="z-10 w-1/3">
                         <Vault className="text-cyan-400 mb-4" />
                         <h3 className="text-5xl font-semibold tracking-tight leading-tight">Vault</h3>

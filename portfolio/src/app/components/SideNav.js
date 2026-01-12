@@ -5,7 +5,7 @@ import { LuGithub } from "react-icons/lu";
 import { IoLogoGithub } from "react-icons/io";
 import { FaLinkedinIn } from "react-icons/fa";
 
-const FLogo = ({ size = 40, className = "" }) => (
+const FLogo = ({ size = 40, className = "", style = {} }) => (
     <svg
         width={size}
         height={size}
@@ -13,6 +13,7 @@ const FLogo = ({ size = 40, className = "" }) => (
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
         className={className}
+        style={style}
     >
         <rect width="100" height="100" fill="#111" />
         {/* Main F shape */}
@@ -24,9 +25,9 @@ const FLogo = ({ size = 40, className = "" }) => (
 
 export default function SideNav() {
     return (
-        <nav className="side-nav fixed border border-white py-8 left-0 top-0 w-30 h-screen flex flex-col items-center justify-start gap-8">
+        <nav className="side-nav fixed py-8 left-0 top-0 w-30 h-screen flex flex-col items-center justify-start gap-8">
             <div className="flex flex-col items-center gap-10">
-                <FLogo size={55} />
+                <FLogo size={60} />
                 <ul
                     className="flex flex-row-reverse rotate-180 list-none"
                     style={{ writingMode: 'vertical-lr' }}

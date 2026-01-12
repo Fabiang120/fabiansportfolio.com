@@ -7,7 +7,7 @@ export default function IntroSection() {
         // We need a animated image in the back ground screen must be transparent
         // My name needs to be there 
         // Plus the text developer and + languages 
-        <section className="intro-section border px-90 h-screen flex flex-col justify-center relative overflow-hidden border-white">
+        <section className="intro-section px-90 h-screen flex flex-col justify-center relative">
             <DisplacementSphere />
             <p className="font-(--font-signature) text-sm text-gray-400 uppercase"> Fabian Garcia </p>
             <h1 className="text-7xl font-light mt-4">Full Stack Developer</h1>
