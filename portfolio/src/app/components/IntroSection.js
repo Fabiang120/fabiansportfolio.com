@@ -1,18 +1,33 @@
 "use client";
-import { useState } from "react";
 import { DisplacementSphere } from "./canvas/DisplacementSphere";
+import styles from "./IntroSection.module.css"
+import { useState, useEffect } from "react"
 
 export default function IntroSection() {
+    const techSkills = ["C++", "JAVA", "JAVASCRIPT", "PYTHON", "REACT", "NEXT.JS", "NODE.JS", "SQL", "TAILWIND", "HTML/CSS"];
+    const [currentIndex, setCurrentIndex] = useState(-1);
+    const currentSkill = currentIndex === -1 ? "Full Stack Dev" : techSkills[currentIndex];
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCurrentIndex((prev) => (prev + 1) % techSkills.length);
+        }, 3000);
+        return () => clearInterval(interval);
+    }, []);
     return (
-        // We need a animated image in the back ground screen must be transparent
-        // My name needs to be there 
-        // Plus the text developer and + languages 
-        <section className="intro-section px-90 h-screen flex flex-col justify-center relative">
+        <section className="intro-section h-screen relative pl-30">
             <DisplacementSphere />
-            <p className="font-(--font-signature) text-sm text-gray-400 uppercase"> Fabian Garcia </p>
-            <h1 className="text-7xl font-light mt-4">Full Stack Developer</h1>
-            <h1>Languages: C++ Java JavaScript Python HTML/CSS React SQL TailWind Bootstrap Next Node.js</h1>
-            <div className="w-48 h-px bg-white mt-6"></div>
+            <div aria-hidden="true" className={`${styles.fabian} uppercase font-black tracking-tighter leading-none absolute`}>Fabian</div>
+
+            <div className="flex flex-col justify-end h-full z-10">
+                <h1 className="text-5xl md-text-7xl lg:text-[7rem] font-extralight leading-tight">I build things</h1>
+                <h1 className="text-5xl md:text-7xl lg:text-[7rem] font-semibold leading-tight">
+                    <span className="gradient-text">for the web</span>
+                </h1>
+                <div className="flex items-center gap-3">
+                    <span>+</span>
+                    <span>{currentSkill}</span>
+                </div>
+            </div>
         </section>
     );
 }

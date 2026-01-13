@@ -2,7 +2,6 @@
 
 :root {
   --background: #111111;
-  /* Hamish's oklch(17.76% 0 0) - correct conversion */
   --foreground: #ededed;
 }
 
@@ -13,12 +12,6 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #111111;
-    --foreground: #ededed;
-  }
-}
 
 body {
   background: var(--background);

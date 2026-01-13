@@ -1,0 +1,12 @@
+.fabian {
+    -webkit-text-stroke: 2px rgba(255, 255, 255, 0.45);
+    color: rgba(255, 255, 255, 0.08);
+    font-size: clamp(6.25rem, 18vw, 16.25rem);
+}
+
+.gradientText {
+    background: linear-gradient(90deg, #5eead4, #06b6d4, #0891b2);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}

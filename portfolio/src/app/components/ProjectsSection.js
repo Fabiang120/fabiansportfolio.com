@@ -15,53 +15,53 @@ export default function ProjectsSection() {
     return (
         <section className="projects-section flex flex-col justify-center relative ">
             <div className="projects-grid">
-                <div className="Project1 px-50 h-screen flex items-center relative  overflow-hidden">
+                <div className="Project1 h-screen flex items-center relative pl-30 ">
                     <div className="textarea  z-10 w-1/3">
                         <GiftBoxIcon className="text-cyan-400 mb-4" />
                         <h3 className="text-5xl font-semibold tracking-tight leading-tight">Parting Gifts</h3>
                         <p className="mt-4 text-lg leading-relaxed text-gray-300">Encrypted digital will platform</p>
                         <button onClick={() => handleClick("PartingGift")}>View Project</button>
                     </div>
-                    <div className="laptop w-1/2 relative">
+                    <div className="laptop w-1/2 relative left-[-10%]">
                         {/* ProjectTag - positioned absolutely behind */}
                         <ProjectTag className="absolute w-full right-[-70%] bottom-[30%] translate-y-1/2 z-0" />
 
                         {/* Laptop wrapper - in front */}
-                        <div className="min-w-[180%] aspect-[12/10] relative left-[14%] top-[6%] z-10">
+                        <div className="min-w-[180%] aspect-[12/10] relative top-[6%] z-10">
                             <Laptop screenImage="/images/parting.png" />
                         </div>
                     </div>
                 </div>
-                <div className="Project2 px-50 h-screen flex items-center relative ">
+                <div className="Project2 h-screen flex items-center relative pl-30">
                     <div className="textarea z-10 w-1/3">
                         <DogBone className="text-cyan-400 mb-4" />
                         <h3 className="text-5xl font-semibold tracking-tight leading-tight">Amazon FBA Sourcing Optimizer</h3>
                         <p className="mt-4 text-lg leading-relaxed text-gray-300">C++ tool that automates Amazon product research, saving 6+ hours daily and driving 20K+ sales.</p>
                         <button onClick={() => handleClick("FBA")}>View Project</button>
                     </div>
-                    <div className="laptop w-1/2 relative">
+                    <div className="laptop w-1/2 relative left-[-10%]">
                         {/* ProjectTag - positioned absolutely behind */}
                         <ProjectTag className="absolute w-full right-[-70%] bottom-[30%] translate-y-1/2 z-0" />
 
                         {/* Laptop wrapper - in front */}
-                        <div className="min-w-[180%] aspect-[12/10] relative left-[14%] top-[6%] z-10">
+                        <div className="min-w-[180%] aspect-[12/10] relative top-[6%] z-10">
                             <Laptop screenImage="/images/excel.png" />
                         </div>
                     </div>
                 </div>
-                <div className="Project3 px-50 h-screen flex items-center relative">
+                <div className="Project3 h-screen flex items-center relative pl-30">
                     <div className="z-10 w-1/3">
                         <Vault className="text-cyan-400 mb-4" />
                         <h3 className="text-5xl font-semibold tracking-tight leading-tight">Vault</h3>
                         <p className="mt-4 text-lg leading-relaxed text-gray-300">Time capsule social media app to lock away memories today and unlock them in the future.</p>
                         <button onClick={() => handleClick("Vault")}>View Project</button>
                     </div>
-                    <div className="laptop w-1/2 relative">
+                    <div className="laptop w-1/2 relative left-[-10%]">
                         {/* ProjectTag - positioned absolutely behind */}
                         <ProjectTag className="absolute w-full right-[-70%] bottom-[30%] translate-y-1/2 z-0" />
 
                         {/* Laptop wrapper - in front */}
-                        <div className="min-w-[180%] aspect-[12/10] relative left-[14%] top-[6%] z-10">
+                        <div className="min-w-[180%] aspect-[12/10] relative top-[6%] z-10">
                             <Laptop screenImage="/images/vaul.png" />
                         </div>
                     </div>

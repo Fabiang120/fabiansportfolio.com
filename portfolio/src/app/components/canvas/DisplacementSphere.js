@@ -45,7 +45,7 @@ export function DisplacementSphere() {
         const adjustedHeight = height + height * 0.3;
         // Remember to test the 100 hardclips anything the far value aka
         // Actual high neededed is 54
-        camera.current = new PerspectiveCamera(90, width / adjustedHeight, 0.1, 100);
+        camera.current = new PerspectiveCamera(54, width / adjustedHeight, 0.1, 100);
         camera.current.position.z = 52;
 
         renderer.current = new WebGLRenderer({
@@ -74,9 +74,6 @@ export function DisplacementSphere() {
 
         const geometry = new SphereGeometry(32, 128, 128);
         sphere.current = new Mesh(geometry, material);
-
-        // Gotta make sure sphere
-        sphere.current.position.set(20, 15, 0);
         scene.current.add(sphere.current);
         const light = new DirectionalLight(0xffffff, 2.0);
         const ambientLight = new AmbientLight(0xffffff, 1.4);
@@ -100,9 +97,6 @@ export function DisplacementSphere() {
             // Sphere rotating around y and camera is above in z axis
             renderer.current.render(scene.current, camera.current);
         };
-
-        animate();
-
         const handleResize = () => {
             const width = window.innerWidth;
             const height = window.innerHeight;
@@ -110,7 +104,20 @@ export function DisplacementSphere() {
             renderer.current.setSize(width, adjustedHeight);
             camera.current.aspect = width / adjustedHeight;
             camera.current.updateProjectionMatrix();
+            if (width <= 640) {
+                sphere.current.position.x = 14;
+                sphere.current.position.y = 10;
+            } else if (width <= 1024) {
+                sphere.current.position.x = 18;
+                sphere.current.position.y = 14;
+            } else {
+                sphere.current.position.x = 22;
+                sphere.current.position.y = 16;
+            }
         }
+        handleResize();
+        animate();
+
         window.addEventListener('resize', handleResize);
 
         return () => {
