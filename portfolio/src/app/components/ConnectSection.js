@@ -2,7 +2,7 @@
 
 export default function ConnectSection() {
     return (
-        <section className="connect-section flex items-center relative pl-30">
+        <section className="connect-section flex items-center relative pl-20">
             <div className="textarea z-10 w-1/3">
                 <div className="intro py-5 flex items-start gap-4">
                     <img

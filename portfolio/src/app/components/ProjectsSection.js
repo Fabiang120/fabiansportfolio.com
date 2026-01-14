@@ -15,7 +15,7 @@ export default function ProjectsSection() {
     return (
         <section className="projects-section flex flex-col justify-center relative ">
             <div className="projects-grid">
-                <div className="Project1 h-screen flex items-center relative pl-30 ">
+                <div className="Project1 h-screen flex items-center relative pl-20 ">
                     <div className="textarea  z-10 w-1/3">
                         <GiftBoxIcon className="text-cyan-400 mb-4" />
                         <h3 className="text-5xl font-semibold tracking-tight leading-tight">Parting Gifts</h3>
@@ -32,7 +32,7 @@ export default function ProjectsSection() {
                         </div>
                     </div>
                 </div>
-                <div className="Project2 h-screen flex items-center relative pl-30">
+                <div className="Project2 h-screen flex items-center relative pl-20">
                     <div className="textarea z-10 w-1/3">
                         <DogBone className="text-cyan-400 mb-4" />
                         <h3 className="text-5xl font-semibold tracking-tight leading-tight">Amazon FBA Sourcing Optimizer</h3>
@@ -49,7 +49,7 @@ export default function ProjectsSection() {
                         </div>
                     </div>
                 </div>
-                <div className="Project3 h-screen flex items-center relative pl-30">
+                <div className="Project3 h-screen flex items-center relative pl-20">
                     <div className="z-10 w-1/3">
                         <Vault className="text-cyan-400 mb-4" />
                         <h3 className="text-5xl font-semibold tracking-tight leading-tight">Vault</h3>
