@@ -4,7 +4,8 @@ import styles from "./IntroSection.module.css"
 import { useState, useEffect } from "react"
 
 export default function IntroSection() {
-    const techSkills = ["C++", "JAVA", "JAVASCRIPT", "PYTHON", "REACT", "NEXT.JS", "NODE.JS", "SQL", "TAILWIND", "HTML/CSS"];
+    const techSkills = ["C++", "JAVA", "JAVASCRIPT", "SWIFT", "PYTHON", "REACT", "NEXT.JS", "NODE.JS", "SQL", "TAILWIND", "HTML/CSS", "JSX", "FLASK", "BOOTSTRAP", "AWS", "GIT"
+    ];
     const [currentIndex, setCurrentIndex] = useState(-1);
     const currentSkill = currentIndex === -1 ? "Full Stack Dev" : techSkills[currentIndex];
     useEffect(() => {
@@ -16,8 +17,6 @@ export default function IntroSection() {
     return (
         <section className="intro-section h-screen relative pl-20">
             <DisplacementSphere />
-
-
             <div className="flex flex-col justify-start h-full relative z-10 pt-30 lg:pt-15 gap-6 md:gap-2 lg:gap-1">
                 <div aria-hidden="true" className={`${styles.fabian} uppercase font-black tracking-tighter leading-none`}>Fabian</div>
                 <div>

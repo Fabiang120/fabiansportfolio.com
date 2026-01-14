@@ -8,17 +8,14 @@
     background: linear-gradient(90deg,
             #fff 0%,
             #67e8f9 25%,
-            /* light cyan */
             #22d3ee 50%,
-            /* bright cyan */
             #67e8f9 75%,
-            /* teal */
             #fff 100%);
     -webkit-background-clip: text;
     background-size: 200% auto;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-    animation: gradient-shift 8s ease-in-out infinite;
+    animation: gradient-shift 6s ease-in-out infinite;
 }
 
 @keyframes gradient-shift {

@@ -1,7 +1,6 @@
 
 "use client";
-import React from 'react'
-import { useRef } from 'react'
+import { useRef, useState, useEffect } from 'react'
 import { Canvas } from '@react-three/fiber'
 import { useGLTF, useTexture } from '@react-three/drei'
 import { DoubleSide } from 'three'
@@ -9,7 +8,7 @@ import { vertexShader, fragmentShader } from './shaders/PortalS'
 import { useFrame } from '@react-three/fiber'
 import { useRouter } from 'next/navigation';
 
-export function Model(props) {
+export function Model({ isVisible, ...props }) {
   const { nodes, materials } = useGLTF('/Portal.glb')
   const shaderRef = useRef();
   const textures = useTexture({
@@ -18,6 +17,7 @@ export function Model(props) {
     roughnessMap: '/Marble015_1K-JPG/Marble015_1K-JPG_Roughness.jpg',
   })
   useFrame((state) => {
+    if (!isVisible) return;
     if (shaderRef.current) {
       shaderRef.current.uniforms.uTime.value = state.clock.elapsedTime
     }
@@ -144,14 +144,28 @@ export function Model(props) {
 useGLTF.preload('/Portal.glb')
 
 export default function Portal() {
+  const canvasRef = useRef();
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      setVisible(entries[0].isIntersecting);
+    });
+
+    if (canvasRef.current) {
+      observer.observe(canvasRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
   return (
-    <div className="relative w-full" style={{ minHeight: "1000px" }}>
+    <div className="relative w-full" style={{ minHeight: "1000px" }} ref={canvasRef}>
       {/* Canvas layer - in front */}
       <div className="absolute inset-0 z-10" style={{ pointerEvents: "none" }}>
         <Canvas camera={{ position: [0, 2, 15], fov: 45 }}>
           <ambientLight intensity={0.9} />
           <directionalLight position={[5, 5, 5]} intensity={1} />
-          <Model position={[-1.5, -5, 0]} scale={1.7} />
+          <Model position={[-1.5, -5, 0]} scale={1.7} isVisible={visible} />
         </Canvas>
       </div>
     </div>

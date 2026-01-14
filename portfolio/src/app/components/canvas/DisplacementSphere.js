@@ -30,8 +30,28 @@ export function DisplacementSphere() {
     const uniforms = useRef();
     const lastTime = useRef(performance.now());
     const start = useRef(Date.now());
-    const [visible, setVisible] = useState(false);
+    const [visible, setVisible] = useState(true);
+    const isVisibleRef = useRef(true);
 
+    // Sync ref when state changes
+    useEffect(() => {
+        isVisibleRef.current = visible;
+    }, [visible]);
+
+    // IntersectionObserver to watch canvas visibility
+    useEffect(() => {
+        const observer = new IntersectionObserver((entries) => {
+            setVisible(entries[0].isIntersecting);
+        });
+
+        if (canvasRef.current) {
+            observer.observe(canvasRef.current);
+        }
+
+        return () => observer.disconnect();
+    }, []);
+
+    // Fade in effect
     useEffect(() => {
         requestAnimationFrame(() => {
             setVisible(true);
@@ -81,8 +101,11 @@ export function DisplacementSphere() {
         light.position.set(100, 100, 200);
 
         scene.current.add(light);
-
         const animate = () => {
+            if (!isVisibleRef.current) {
+                requestAnimationFrame(animate);
+                return;
+            }
             requestAnimationFrame(animate);
             // Uses position += velocity x timepassed
             const now = performance.now();
@@ -122,6 +145,9 @@ export function DisplacementSphere() {
 
         return () => {
             window.removeEventListener('resize', handleResize);
+            renderer.current.dispose();
+            sphere.current.geometry.dispose();
+            sphere.current.material.dispose();
             renderer.current.dispose();
         }
     }, []);

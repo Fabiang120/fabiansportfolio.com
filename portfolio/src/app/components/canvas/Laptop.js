@@ -3,11 +3,10 @@
 import { useRef, useState, useEffect } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
 import { useGLTF, useTexture } from '@react-three/drei'
-import { useHelper } from '@react-three/drei'
-import { Color, SRGBColorSpace } from 'three'
+import { Color } from 'three'
 
 
-export function Model({ screenImage, ...props }) {
+export function Model({ screenImage, isVisible, ...props }) {
   const { nodes, materials } = useGLTF('/macbook-pro.glb')
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const groupRef = useRef();
@@ -15,19 +14,23 @@ export function Model({ screenImage, ...props }) {
   screenTexture.flipY = false;
   materials.Frame.color = new Color(0x1f2025);
 
+
   useEffect(() => {
+    if (!isVisible) return;
     const handleMouseMove = (event) => {
       const { innerWidth, innerHeight } = window;
       const x = (event.clientX - innerWidth / 2) / innerWidth;
       const y = (event.clientY - innerHeight / 2) / innerHeight;
       setMousePosition({ x, y });
     }
+
     window.addEventListener('mousemove', handleMouseMove);
     return () => {
       window.removeEventListener('mousemove', handleMouseMove);
     }
-  }, [])
+  }, [isVisible]);
   useFrame(() => {
+    if (!isVisible) return;
     if (groupRef.current) {
       groupRef.current.rotation.y = mousePosition.x / 4;
       groupRef.current.rotation.x = mousePosition.y / 4;
@@ -64,12 +67,28 @@ function Lights() {
 }
 
 export default function Laptop({ screenImage }) {
+  const canvasRef = useRef();
+  const [visible, setVisible] = useState(false);
+
+  // IntersectionObserver to watch canvas visibility
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      setVisible(entries[0].isIntersecting);
+    });
+
+    if (canvasRef.current) {
+      observer.observe(canvasRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <div className="relative w-full aspect-[12/10]">
       {/* Canvas layer - in front */}
-      <div className="absolute inset-0">
+      <div className="absolute inset-0" ref={canvasRef}>
         <Canvas
+          frameloop="demand"
           flat
           camera={{ position: [0, 0, 8], fov: 36 }}
           dpr={2}
@@ -79,7 +98,7 @@ export default function Laptop({ screenImage }) {
         >
           {/* red is x, green is y, z is blue for axes helper */}
           <Lights />
-          <Model position={[0, 0, 0]} screenImage={screenImage} />
+          <Model position={[0, 0, 0]} screenImage={screenImage} isVisible={visible} />
         </Canvas>
       </div>
     </div >
