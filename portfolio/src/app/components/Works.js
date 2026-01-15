@@ -17,7 +17,7 @@ export default function Works() {
             </div>
 
             {/* Portal */}
-            <div className="relative z-10 w-full overflow-visible">
+            <div className="relative z-10 w-full">
                 <Portal />
             </div>
             <p></p>

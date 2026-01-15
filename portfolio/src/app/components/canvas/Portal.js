@@ -159,13 +159,13 @@ export default function Portal() {
     return () => observer.disconnect();
   }, []);
   return (
-    <div className="relative w-full overflow-visible" style={{ minHeight: "1000px" }} ref={canvasRef}>
+    <div className="relative w-full" style={{ minHeight: "1000px" }} ref={canvasRef}>
       {/* Canvas layer - in front */}
       <div className="absolute inset-0 z-10" style={{ pointerEvents: "none" }}>
         <Canvas camera={{ position: [0, 2, 15], fov: 45 }} style={{ background: "transparent" }} gl={{ alpha: true }}>
           <ambientLight intensity={0.9} />
           <directionalLight position={[5, 5, 5]} intensity={1} />
-          <Model position={[-1.7, -6, 0]} scale={1.7} isVisible={visible} />
+          <Model position={[-1.7, -5.6, 0]} scale={1.7} isVisible={visible} />
         </Canvas>
       </div>
     </div>
