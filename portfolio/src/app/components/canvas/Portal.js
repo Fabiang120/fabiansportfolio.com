@@ -165,7 +165,7 @@ export default function Portal() {
         <Canvas camera={{ position: [0, 2, 15], fov: 45 }}>
           <ambientLight intensity={0.9} />
           <directionalLight position={[5, 5, 5]} intensity={1} />
-          <Model position={[-1.5, -5, 0]} scale={1.7} isVisible={visible} />
+          <Model position={[-1.7, -5.6, 0]} scale={1.7} isVisible={visible} />
         </Canvas>
       </div>
     </div>
