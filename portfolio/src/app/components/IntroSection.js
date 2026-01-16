@@ -15,13 +15,13 @@ export default function IntroSection() {
         return () => clearInterval(interval);
     }, []);
     return (
-        <section className="intro-section h-screen relative pl-20">
+        <section className="intro-section h-screen relative pl-15 md:pl-20">
             <DisplacementSphere />
             <div className="flex flex-col justify-start h-full relative z-10 pt-30 lg:pt-15 gap-6 md:gap-2 lg:gap-1">
                 <div aria-hidden="true" className={`${styles.fabian} uppercase font-black tracking-tighter leading-none`}>Fabian</div>
                 <div>
-                    <h1 className="text-5xl text-white/90 md:text-7xl lg:text-[7rem] font-extralight leading-tight">I build services</h1>
-                    <h1 className="text-5xl text-white/90 md:text-7xl lg:text-[7rem] font-semibold leading-tight">
+                    <h1 className="text-5xl text-[clamp(2rem,6vw,5rem)] text-white/90 md:text-7xl lg:text-[7rem] font-extralight leading-tight">I build services</h1>
+                    <h1 className="text-5xl text-[clamp(2rem,6vw,5rem)] text-white/90 md:text-7xl lg:text-[7rem] font-semibold leading-tight">
                         <span className={styles.gradientText}>for the web</span>
                     </h1>
                 </div>
