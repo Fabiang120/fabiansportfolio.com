@@ -2,31 +2,29 @@
     position: absolute;
     width: 50%;
     left: 40%;
-    bottom: 25%;
+    bottom: 28%;
     z-index: 0;
 }
 
 @media (min-width: 768px) {
     .projectTag {
-        width: 100%;
+        width: 60%;
         left: auto;
         transform: translateY(50%);
-        right: -70%;
-        bottom: 30%;
+        right: 7rem;
+        bottom: 35%;
     }
 }
 
 .textarea {
     z-index: 10;
-    width: 100%;
-    max-width: 20rem;
-    /* max-w-sm = 384px */
-    margin-left: auto;
-    margin-right: auto;
     display: flex;
+    padding-left: 3rem;
     flex-direction: column;
     align-items: flex-start;
+    /* Left-align text inside */
     order: 2;
+    margin-bottom: 6rem;
 }
 
 @media (min-width: 768px) {
