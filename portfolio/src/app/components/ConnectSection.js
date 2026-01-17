@@ -7,15 +7,15 @@ export default function ConnectSection() {
         router.push("/Message");
     }
     return (
-        <section className="connect-section flex items-center relative z-0 pl-20 overflow-visible">
-            <div className="textarea z-10 w-1/3">
+        <section className="connect-section flex flex-col items-start md:flex-row md:items-center mb-24 relative z-0 pl-12 md:pl-20 overflow-visible ">
+            <div className="textarea z-10 w-[90%] md:w-1/3">
                 <div className="intro py-5 flex items-start gap-4">
                     <img
                         className="h-55 drop-shadow-lg"
                         src="/images/Cuban-Trogon.png"
                         alt="Cuban Trogon"
                     />
-                    <div className="speech-bubble relative bg-cyan-400 rounded-2xl px-8 py-4 mt-2">
+                    <div className="speech-bubble relative bg-cyan-400 rounded-2xl px-2 py-1 md:px-4 md:py-2 mt-2">
                         <h2 className="text-5xl font-semibold tracking-tight leading-tight text-black/90">Hola!</h2>
                         {/* Speech bubble tail */}
                         <div className="absolute -left-2 top-6 w-0 h-0 border-t-8 border-t-transparent border-r-8 border-r-cyan-400 border-b-8 border-b-transparent"></div>

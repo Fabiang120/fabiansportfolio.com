@@ -3,18 +3,14 @@ import { useState } from "react";
 import { LuGithub } from "react-icons/lu";
 import { IoLogoGithub } from "react-icons/io";
 import { FaLinkedinIn } from "react-icons/fa";
-import { HiOutlineMenuAlt2 } from "react-icons/hi";
-import { IoClose } from "react-icons/io5";
+import { IoClose } from "react-icons/io5"
 
-const FLogo = ({ size = 40, className = "", style = {} }) => (
+const FLogo = ({ className = "" }) => (
     <svg
-        width={size}
-        height={size}
         viewBox="0 0 100 100"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
         className={className}
-        style={style}
     >
         <defs>
             <mask id="fmask">
@@ -35,90 +31,48 @@ export default function SideNav() {
 
     return (
         <>
-            {/* Pull tab - always visible */}
-            <div
-                className="fixed left-0 top-1/2 -translate-y-1/2 z-50 cursor-pointer"
-                onClick={() => setIsOpen(true)}
-                style={{
-                    opacity: isOpen ? 0 : 1,
-                    pointerEvents: isOpen ? 'none' : 'auto',
-                    transition: 'opacity 0.3s ease',
-                }}
-            >
-                <div
-                    className="flex items-center justify-center animate-pulse-subtle"
-                    style={{
-                        width: '24px',
-                        height: '80px',
-                        background: 'rgba(255,255,255,0.1)',
-                        borderRadius: '0 8px 8px 0',
-                        backdropFilter: 'blur(10px)',
-                    }}
-                >
-                    <div
-                        style={{
-                            width: '3px',
-                            height: '30px',
-                            background: 'rgba(255,255,255,0.4)',
-                            borderRadius: '2px',
-                        }}
-                    />
-                </div>
-            </div>
-
-            {/* Overlay when nav is open */}
-            <div
-                className="fixed inset-0 z-40 bg-black/50 transition-opacity duration-300"
-                style={{
-                    opacity: isOpen ? 1 : 0,
-                    pointerEvents: isOpen ? 'auto' : 'none',
-                }}
-                onClick={() => setIsOpen(false)}
-            />
-
-            {/* Slide-out navigation */}
-            <nav
-                className="fixed left-0 top-0 h-screen z-50 flex flex-col items-center justify-between py-8 transition-transform duration-500 ease-out"
-                style={{
-                    width: '120px',
-                    background: 'rgba(17,17,17,0.95)',
-                    backdropFilter: 'blur(20px)',
-                    borderRight: '1px solid rgba(255,255,255,0.1)',
-                    transform: isOpen ? 'translateX(0)' : 'translateX(-100%)',
-                }}
-            >
-                {/* Close button */}
+            {!isOpen && (
                 <button
-                    onClick={() => setIsOpen(false)}
-                    className="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors"
+                    onClick={() => setIsOpen(true)}
+                    className="fixed top-4 right-4 md:top-6 md:right-6 z-30"
                 >
-                    <IoClose size={20} />
+                    <div className="flex flex-col gap-1">
+                        <span className="block w-5 md:w-6 h-0.5 bg-white"></span>
+                        <span className="block w-5 md:w-6 h-0.5 bg-white"></span>
+                        <span className="block w-5 md:w-6 h-0.5 bg-white"></span>
+                    </div>
                 </button>
-
-                {/* Logo and nav links */}
-                <div className="flex flex-col items-center gap-10">
-                    <FLogo size={50} />
-                    <ul
-                        className="flex flex-row-reverse rotate-180 list-none"
-                        style={{ writingMode: 'vertical-lr' }}
-                    >
-                        <li className="p-4 text-gray-300 hover:text-white cursor-pointer transition-colors">Home</li>
-                        <li className="p-4 text-gray-300 hover:text-white cursor-pointer transition-colors">Projects</li>
-                        <li className="p-4 text-gray-300 hover:text-white cursor-pointer transition-colors">Other Work</li>
-                        <li className="p-4 text-gray-300 hover:text-white cursor-pointer transition-colors">Connect</li>
-                    </ul>
+            )}
+            {/* Slide-out navigation */}
+            {isOpen && (
+                <div className="fixed inset-0 backdrop-blur-xl z-20 bg-black/80 flex flex-col">
+                    <div className="flex justify-between items-center py-5 px-5 md:px-8">
+                        <FLogo className="w-12 h-12 md:w-14 md:h-14 lg:w-16 lg:h-16" />
+                        <IoClose
+                            className="w-6 h-6 md:w-7 md:h-7 lg:w-8 lg:h-8 cursor-pointer text-white hover:text-gray-300 transition-colors"
+                            onClick={() => setIsOpen(false)}
+                        />
+                    </div>
+                    <div className="nav-links flex flex-1 flex-col justify-center items-center">
+                        <ul
+                            className="list-none"
+                        >
+                            <li className="p-3 md:p-4 text-2xl md:text-3xl lg:text-4xl text-gray-300 hover:text-white cursor-pointer transition-colors">Home</li>
+                            <li className="p-3 md:p-4 text-2xl md:text-3xl lg:text-4xl text-gray-300 hover:text-white cursor-pointer transition-colors">Projects</li>
+                            <li className="p-3 md:p-4 text-2xl md:text-3xl lg:text-4xl text-gray-300 hover:text-white cursor-pointer transition-colors">Other Work</li>
+                            <li className="p-3 md:p-4 text-2xl md:text-3xl lg:text-4xl text-gray-300 hover:text-white cursor-pointer transition-colors">Connect</li>
+                        </ul>
+                    </div>
+                    <div className="social-links flex gap-4 py-5 px-5 md:px-8">
+                        <a href="#" className="text-gray-400 hover:text-white transition-colors">
+                            <FaLinkedinIn className="w-5 h-5 md:w-6 md:h-6 lg:w-7 lg:h-7" />
+                        </a>
+                        <a href="#" className="text-gray-400 hover:text-white transition-colors">
+                            <IoLogoGithub className="w-5 h-5 md:w-6 md:h-6 lg:w-7 lg:h-7" />
+                        </a>
+                    </div>
                 </div>
-
-                {/* Social links */}
-                <div className="flex flex-col items-center gap-6">
-                    <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                        <FaLinkedinIn size={20} />
-                    </a>
-                    <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                        <IoLogoGithub size={20} />
-                    </a>
-                </div>
-            </nav>
+            )}
         </>
     );
 }

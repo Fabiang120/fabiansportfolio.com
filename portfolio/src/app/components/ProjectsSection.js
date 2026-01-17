@@ -13,7 +13,7 @@ export default function ProjectsSection() {
         router.push(`/${route}`)
     }
     return (
-        <section className="projects-section flex flex-col justify-center relative ">
+        <section className="projects-section flex flex-col justify-center relative overflow-hidden ">
             <div className="projects-grid">
                 <div className="Project1 min-h-screen md:h-screen flex flex-col md:items-center md:flex-row items-start relative pl-0 md:pl-20 ">
                     <div className={styles.textarea}>
