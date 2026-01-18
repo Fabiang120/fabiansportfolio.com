@@ -1,5 +1,6 @@
 "use client";
 import { useRouter } from 'next/navigation';
+import { motion } from "framer-motion";
 
 export default function ConnectSection() {
     const router = useRouter();
@@ -7,7 +8,7 @@ export default function ConnectSection() {
         router.push("/Message");
     }
     return (
-        <section className="connect-section flex flex-col items-start md:flex-row md:items-center mb-24 relative z-0 pl-12 md:pl-20 overflow-visible ">
+        <section id="connect" className="flex flex-col items-start md:flex-row md:items-center mb-24 relative z-0 pl-12 md:pl-20 overflow-visible ">
             <div className="textarea z-10 w-[90%] md:w-1/3">
                 <div className="intro py-5 flex items-start gap-4">
                     <img
@@ -22,10 +23,22 @@ export default function ConnectSection() {
                     </div>
                 </div>
 
-                {/* lets put the cuban bird in a svg with the different colors*/}
-                <p className="mt-4 text-lg leading-relaxed text-gray-300">My name is Fabian, and I dedicate most of my time to studying at the University of Florida and expanding my business, Fabian’s General Corner LLC. My work spans full-stack engineering, systems programming, applied machine learning, and API-driven automation. Currently, I’ve been focused on crafting clean, modern web experiences with Tailwind and Next.js, alongside developing a Minecraft mod. If you’re interested in exploring more of my work, scroll down to the next section!</p>
-                <p className="mt-4 text-lg leading-relaxed text-gray-300">Outside of my work, I push myself through boxing training, weightlifting, running, and disciplined nutrition planning. P.S. The bird featured here is the tocororo, also known as the “freedom bird”, the national bird of Cuba, representing resilience and independence.</p>
-                <button className="mt-5 mb-5 font-bold rounded text-cyan-500" onClick={() => handleClick()}>Send Me a Message</button>
+                <motion.p
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 1, duration: 2 }}
+                    className="mt-4 text-lg leading-relaxed text-gray-300">My name is Fabian, and I dedicate most of my time to studying at the University of Florida and expanding my business, Fabian’s General Corner LLC. My work spans full-stack engineering, systems programming, applied machine learning, and API-driven automation. Currently, I’ve been focused on crafting clean, modern web experiences with Tailwind and Next.js, alongside developing a Minecraft mod. If you’re interested in exploring more of my work, scroll down to the next section!</motion.p>
+                <motion.p
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 1, duration: 2 }}
+                    className="mt-4 text-lg leading-relaxed text-gray-300">Outside of my work, I push myself through boxing training, weightlifting, running, and disciplined nutrition planning. P.S. The bird featured here is the tocororo, also known as the “freedom bird”, the national bird of Cuba, representing resilience and independence.</motion.p>
+                <motion.button
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 1, duration: 2 }}
+                    className="mt-5 mb-5 font-bold rounded cursor-pointer text-cyan-500" onClick={() => handleClick()}>Send Me a Message
+                </motion.button>
             </div>
             <div className="selfimage flex-1 h-full border border-white">
                 Coming soon..

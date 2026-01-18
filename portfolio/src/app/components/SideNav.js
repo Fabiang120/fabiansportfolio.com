@@ -3,7 +3,10 @@ import { useState } from "react";
 import { LuGithub } from "react-icons/lu";
 import { IoLogoGithub } from "react-icons/io";
 import { FaLinkedinIn } from "react-icons/fa";
-import { IoClose } from "react-icons/io5"
+import { IoClose } from "react-icons/io5";
+import { motion } from "framer-motion";
+import { buttonVariants } from "./frameranims";
+import { AnimatePresence } from "framer-motion";
 
 const FLogo = ({ className = "" }) => (
     <svg
@@ -32,7 +35,7 @@ export default function SideNav() {
     return (
         <>
             {!isOpen && (
-                <button
+                <motion.button
                     onClick={() => setIsOpen(true)}
                     className="fixed top-4 right-4 md:top-6 md:right-6 z-30"
                 >
@@ -41,38 +44,54 @@ export default function SideNav() {
                         <span className="block w-5 md:w-6 h-0.5 bg-white"></span>
                         <span className="block w-5 md:w-6 h-0.5 bg-white"></span>
                     </div>
-                </button>
+                </motion.button>
             )}
             {/* Slide-out navigation */}
-            {isOpen && (
-                <div className="fixed inset-0 backdrop-blur-xl z-20 bg-black/80 flex flex-col">
-                    <div className="flex justify-between items-center py-5 px-5 md:px-8">
-                        <FLogo className="w-12 h-12 md:w-14 md:h-14 lg:w-16 lg:h-16" />
-                        <IoClose
-                            className="w-6 h-6 md:w-7 md:h-7 lg:w-8 lg:h-8 cursor-pointer text-white hover:text-gray-300 transition-colors"
-                            onClick={() => setIsOpen(false)}
-                        />
-                    </div>
-                    <div className="nav-links flex flex-1 flex-col justify-center items-center">
-                        <ul
-                            className="list-none"
-                        >
-                            <li className="p-3 md:p-4 text-2xl md:text-3xl lg:text-4xl text-gray-300 hover:text-white cursor-pointer transition-colors">Home</li>
-                            <li className="p-3 md:p-4 text-2xl md:text-3xl lg:text-4xl text-gray-300 hover:text-white cursor-pointer transition-colors">Projects</li>
-                            <li className="p-3 md:p-4 text-2xl md:text-3xl lg:text-4xl text-gray-300 hover:text-white cursor-pointer transition-colors">Other Work</li>
-                            <li className="p-3 md:p-4 text-2xl md:text-3xl lg:text-4xl text-gray-300 hover:text-white cursor-pointer transition-colors">Connect</li>
-                        </ul>
-                    </div>
-                    <div className="social-links flex gap-4 py-5 px-5 md:px-8">
-                        <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                            <FaLinkedinIn className="w-5 h-5 md:w-6 md:h-6 lg:w-7 lg:h-7" />
-                        </a>
-                        <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                            <IoLogoGithub className="w-5 h-5 md:w-6 md:h-6 lg:w-7 lg:h-7" />
-                        </a>
-                    </div>
-                </div>
-            )}
+            <AnimatePresence>
+                {isOpen && (
+                    <motion.div
+                        initial={{ y: "-100%" }}
+                        animate={{ y: 0 }}
+                        exit={{ y: "-100%" }}
+                        transition={{ type: "tween", duration: 0.3 }}
+                        className="fixed inset-0 backdrop-blur-xl z-20 bg-black/80 flex flex-col">
+                        <div className="flex justify-between items-center py-5 px-5 md:px-8">
+                            <FLogo className="w-12 h-12 md:w-14 md:h-14 lg:w-16 lg:h-16" />
+                            {/* add button animation */}
+                            <IoClose
+                                className="w-6 h-6 md:w-7 md:h-7 lg:w-8 lg:h-8 cursor-pointer text-white hover:text-gray-300 transition-colors"
+                                onClick={() => setIsOpen(false)}
+                            />
+                        </div>
+                        <div className="nav-links flex flex-1 flex-col justify-center items-center">
+                            <ul
+                                className="list-none"
+                            >
+                                <a href="#home" onClick={() => setIsOpen(false)}>
+                                    <li className="p-3 md:p-4 text-2xl md:text-3xl lg:text-4xl text-gray-300 hover:text-white cursor-pointer transition-colors">Home</li>
+                                </a>
+                                <a href="#projects" onClick={() => setIsOpen(false)}>
+                                    <li className="p-3 md:p-4 text-2xl md:text-3xl lg:text-4xl text-gray-300 hover:text-white cursor-pointer transition-colors">Projects</li>
+                                </a>
+                                <a href="#connect" onClick={() => setIsOpen(false)}>
+                                    <li className="p-3 md:p-4 text-2xl md:text-3xl lg:text-4xl text-gray-300 hover:text-white cursor-pointer transition-colors">Connect</li>
+                                </a>
+                                <a href="#other-work" onClick={() => setIsOpen(false)}>
+                                    <li className="p-3 md:p-4 text-2xl md:text-3xl lg:text-4xl text-gray-300 hover:text-white cursor-pointer transition-colors">Other Work</li>
+                                </a>
+                            </ul>
+                        </div>
+                        <div className="social-links flex gap-4 py-5 px-5 md:px-8">
+                            <a href="https://www.linkedin.com/in/fabian-garcia-787006292/" className="text-gray-400 hover:text-white transition-colors">
+                                <FaLinkedinIn className="w-5 h-5 md:w-6 md:h-6 lg:w-7 lg:h-7" />
+                            </a>
+                            <a href="https://github.com/Fabiang120" className="text-gray-400 hover:text-white transition-colors">
+                                <IoLogoGithub className="w-5 h-5 md:w-6 md:h-6 lg:w-7 lg:h-7" />
+                            </a>
+                        </div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </>
     );
 }
