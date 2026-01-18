@@ -22,14 +22,12 @@
     padding-left: 3rem;
     flex-direction: column;
     align-items: flex-start;
-    /* Left-align text inside */
     order: 2;
     margin-bottom: 6rem;
 }
 
 @media (min-width: 768px) {
     .textarea {
-        max-width: none;
         margin-left: 0;
         margin-right: 0;
         width: 33.333333%;

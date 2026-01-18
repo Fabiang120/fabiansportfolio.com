@@ -24,19 +24,19 @@ export default function ProjectsSection() {
                             initial={{ y: 20, opacity: 0 }}
                             animate={{ y: 0, opacity: 1 }}
                             transition={{ delay: 1.2, duration: 1, type: 'tween' }}
-                            className="text-white/90 text-5xl font-semibold tracking-tight leading-tight">Parting Gifts</motion.h3>
+                            className="text-white/90 text-5xl text-balance font-semibold tracking-tight leading-tight">Parting Gifts</motion.h3>
                         <motion.p
                             initial={{ y: 20, opacity: 0 }}
                             animate={{ y: 0, opacity: 1 }}
                             transition={{ delay: 0.6, duration: 1, type: 'tween' }}
-                            className="mt-4 text-lg leading-relaxed text-gray-300">Encrypted digital will platform</motion.p>
+                            className="mt-4 text-lg leading-relaxed text-gray-300">Encrypted digital will and scheduled message delivery platform, automating the process for those that pass away.</motion.p>
                         <motion.button
                             variants={buttonVariants}
                             initial={{ y: 20, opacity: 0 }}
                             animate={{ y: 0, opacity: 1 }}
                             transition={{ delay: 0.2, duration: 1, type: 'tween' }}
                             whileHover="hover"
-                            className="px-4 py-2 mt-5 text-black font-medium rounded bg-cyan-500" onClick={() => handleClick("PartingGift")}>View Project</motion.button>
+                            className="px-4 py-2 mt-5 text-balance text-black font-medium rounded bg-cyan-500" onClick={() => handleClick("PartingGift")}>View Project</motion.button>
                     </div>
                     <div className="laptop w-full md:w-1/2 relative order-1 md:order-2">
                         {/* Laptop wrapper - contains both laptop and tag */}
@@ -68,7 +68,7 @@ export default function ProjectsSection() {
                             initial={{ y: 20, opacity: 0 }}
                             animate={{ y: 0, opacity: 1 }}
                             transition={{ delay: 0.6, duration: 1, type: 'tween' }}
-                            className="mt-4 text-lg leading-relaxed text-gray-300">C++ tool that automates Amazon product research, saving 6+ hours daily and driving 20K+ sales.</motion.p>
+                            className="mt-4 text-lg leading-relaxed text-gray-300">C++ automation tool for Amazon product research. Saved 6+ hours daily and contributed to 20000+ sales.</motion.p>
                         <motion.button
                             variants={buttonVariants}
                             initial={{ y: 20, opacity: 0 }}
@@ -105,7 +105,7 @@ export default function ProjectsSection() {
                             initial={{ y: 20, opacity: 0 }}
                             animate={{ y: 0, opacity: 1 }}
                             transition={{ delay: 0.6, duration: 1, type: 'tween' }}
-                            className="mt-4 text-lg leading-relaxed text-gray-300">Time capsule social media app to lock away memories today and unlock them in the future.</motion.p>
+                            className="mt-4 text-lg leading-relaxed text-gray-300">Time capsule social media app for storing and scheduling content to unlock.</motion.p>
                         <motion.button
                             variants={buttonVariants}
                             initial={{ y: 20, opacity: 0 }}
