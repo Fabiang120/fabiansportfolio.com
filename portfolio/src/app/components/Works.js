@@ -1,5 +1,6 @@
 "use client";
 import Portal from "./canvas/Portal";
+import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
 
 export default function Works() {
