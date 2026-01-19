@@ -1,38 +1,49 @@
 
 
 import { useRef, useState, useEffect } from 'react'
-import { Canvas, useFrame } from '@react-three/fiber'
+import { Canvas, useFrame, useThree } from '@react-three/fiber'
 import { useGLTF, useTexture } from '@react-three/drei'
 import { Color } from 'three'
 import { AxesHelper } from 'three'
-
+import { throttle } from 'lodash-es'
 
 export function Model({ screenImage, isVisible, ...props }) {
   const { nodes, materials } = useGLTF('/macbook-pro.glb')
+  const { invalidate } = useThree();
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const groupRef = useRef();
   const lidRef = useRef();
 
   const screenTexture = useTexture(screenImage);
+  screenTexture.anisotropy = 16;
   screenTexture.flipY = false;
   materials.Frame.color = new Color(0x1f2025);
 
 
   useEffect(() => {
+    invalidate();
     if (!isVisible) return;
 
-    const handleMouseMove = (event) => {
+    const handleMouseMove = throttle((event) => {
       const { innerWidth, innerHeight } = window;
       const x = (event.clientX - innerWidth / 2) / innerWidth;
       const y = (event.clientY - innerHeight / 2) / innerHeight;
       setMousePosition({ x, y });
-    }
+      invalidate();
+    }, 10);
 
     window.addEventListener('mousemove', handleMouseMove);
     return () => {
       window.removeEventListener('mousemove', handleMouseMove);
     }
-  }, [isVisible]);
+  }, [isVisible, invalidate]);
+
+
+  useEffect(() => {
+    return () => {
+      screenTexture.dispose();
+    };
+  }, [])
 
   useFrame(() => {
     if (!isVisible) return;
@@ -42,8 +53,12 @@ export function Model({ screenImage, isVisible, ...props }) {
     }
     if (lidRef.current) {
       lidRef.current.rotation.x += (0 - lidRef.current.rotation.x) * 0.02;
+      if (Math.abs(lidRef.current.rotation.x) > 0.01) {
+        invalidate();
+      }
     }
-  })
+  });
+
   const screenMaterial = materials.Screen.clone();
   screenMaterial.map = screenTexture;
   screenMaterial.color = new Color(0xffffff);
@@ -99,6 +114,7 @@ export default function Laptop({ screenImage }) {
       <div className="absolute inset-0" ref={canvasRef}>
         <Canvas
           flat
+          frameloop="demand"
           camera={{ position: [0, 0, 8], fov: 36 }}
           dpr={2}
           onCreated={({ gl }) => {
