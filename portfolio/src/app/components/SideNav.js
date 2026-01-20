@@ -46,7 +46,6 @@ export default function SideNav() {
                     </div>
                 </motion.button>
             )}
-            {/* Slide-out navigation */}
             <AnimatePresence>
                 {isOpen && (
                     <motion.div
@@ -57,7 +56,6 @@ export default function SideNav() {
                         className="fixed inset-0 backdrop-blur-xl z-20 bg-black/80 flex flex-col">
                         <div className="flex justify-between items-center py-5 px-5 md:px-8">
                             <FLogo className="w-12 h-12 md:w-14 md:h-14 lg:w-16 lg:h-16" />
-                            {/* add button animation */}
                             <IoClose
                                 className="w-6 h-6 md:w-7 md:h-7 lg:w-8 lg:h-8 cursor-pointer text-white hover:text-gray-300 transition-colors"
                                 onClick={() => setIsOpen(false)}

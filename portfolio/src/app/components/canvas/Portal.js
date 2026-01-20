@@ -150,6 +150,8 @@ export default function Portal() {
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
       setVisible(entries[0].isIntersecting);
+    }, {
+      threshold: 0.40
     });
 
     if (canvasRef.current) {

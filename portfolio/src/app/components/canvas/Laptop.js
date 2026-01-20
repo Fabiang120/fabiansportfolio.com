@@ -1,18 +1,30 @@
+import { useRef, useState, useEffect, useMemo } from 'react';
+import { Canvas, useFrame } from '@react-three/fiber';
+import { useGLTF, useTexture } from '@react-three/drei';
+import { Color } from 'three';
+import { throttle } from 'lodash-es';
+import { useSpring } from 'framer-motion';
 
 
-import { useRef, useState, useEffect } from 'react'
-import { Canvas, useFrame, useThree } from '@react-three/fiber'
-import { useGLTF, useTexture } from '@react-three/drei'
-import { Color } from 'three'
-import { AxesHelper } from 'three'
-import { throttle } from 'lodash-es'
+const rotationSpringConfig = {
+  stiffness: 60,
+  damping: 20,
+  mass: 1.0,
+  restSpeed: 0.001,
+};
 
 export function Model({ screenImage, isVisible, ...props }) {
-  const { nodes, materials } = useGLTF('/macbook-pro.glb')
-  const { invalidate } = useThree();
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const { nodes, materials } = useGLTF('/macbook-pro.glb');
+
   const groupRef = useRef();
   const lidRef = useRef();
+
+  // Direct rotation values for mouse tracking
+  const targetRotationX = useRef(0);
+  const targetRotationY = useRef(0);
+
+  // Spring only for lid opening animation
+  const lidRotation = useSpring(1.58, rotationSpringConfig);
 
   const screenTexture = useTexture(screenImage);
   screenTexture.anisotropy = 16;
@@ -20,48 +32,57 @@ export function Model({ screenImage, isVisible, ...props }) {
   materials.Frame.color = new Color(0x1f2025);
 
 
+
+  // Mouse move handler
   useEffect(() => {
-    invalidate();
     if (!isVisible) return;
 
     const handleMouseMove = throttle((event) => {
       const { innerWidth, innerHeight } = window;
       const x = (event.clientX - innerWidth / 2) / innerWidth;
       const y = (event.clientY - innerHeight / 2) / innerHeight;
-      setMousePosition({ x, y });
-      invalidate();
-    }, 10);
+      targetRotationX.current = y / 10;
+      targetRotationY.current = x / 10;
+    }, 16);
 
     window.addEventListener('mousemove', handleMouseMove);
     return () => {
       window.removeEventListener('mousemove', handleMouseMove);
-    }
-  }, [isVisible, invalidate]);
-
+    };
+  }, [isVisible]);
 
   useEffect(() => {
     return () => {
       screenTexture.dispose();
     };
-  }, [])
+  }, []);
+
+  useEffect(() => {
+    if (isVisible) {
+      lidRotation.set(0);
+    }
+  }, [isVisible, lidRotation]);
 
   useFrame(() => {
     if (!isVisible) return;
+
     if (groupRef.current) {
-      groupRef.current.rotation.y = mousePosition.x / 10;
-      groupRef.current.rotation.x = mousePosition.y / 10;
+      groupRef.current.rotation.x = targetRotationX.current;
+      groupRef.current.rotation.y = targetRotationY.current;
     }
+
     if (lidRef.current) {
-      lidRef.current.rotation.x += (0 - lidRef.current.rotation.x) * 0.02;
-      if (Math.abs(lidRef.current.rotation.x) > 0.01) {
-        invalidate();
-      }
+      lidRef.current.rotation.x = lidRotation.get();
     }
   });
 
-  const screenMaterial = materials.Screen.clone();
-  screenMaterial.map = screenTexture;
-  screenMaterial.color = new Color(0xffffff);
+  const screenMaterial = useMemo(() => {
+    const mat = materials.Screen.clone();
+    mat.map = screenTexture;
+    mat.color = new Color(0xffffff);
+    return mat;
+  }, [materials.Screen, screenTexture]);
+
   return (
     <group {...props} ref={groupRef} dispose={null}>
       <mesh geometry={nodes.Keyboard.geometry} material={materials.Frame}>
@@ -78,10 +99,9 @@ export function Model({ screenImage, isVisible, ...props }) {
   );
 }
 
-useGLTF.preload('/macbook-pro.glb')
+useGLTF.preload('/macbook-pro.glb');
 
 function Lights() {
-
   return (
     <>
       <ambientLight intensity={1.2} />
@@ -91,42 +111,24 @@ function Lights() {
   );
 }
 
-export default function Laptop({ screenImage }) {
-  const canvasRef = useRef();
-  const [visible, setVisible] = useState(false);
-
-  // IntersectionObserver to watch canvas visibility
-  useEffect(() => {
-    const observer = new IntersectionObserver((entries) => {
-      setVisible(entries[0].isIntersecting);
-    });
-
-    if (canvasRef.current) {
-      observer.observe(canvasRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, []);
+export default function Laptop({ screenImage, isVisible }) {
 
   return (
     <div className="relative w-full aspect-[12/10]">
-      {/* Canvas layer - in front */}
-      <div className="absolute inset-0" ref={canvasRef}>
+      <div className="absolute inset-0" >
         <Canvas
           flat
-          frameloop="demand"
           camera={{ position: [0, 0, 8], fov: 36 }}
           dpr={2}
           onCreated={({ gl }) => {
             gl.outputColorSpace = 'srgb';
           }}
         >
-          {/* red is x, green is y, z is blue for axes helper */}
+
           <Lights />
-          <Model position={[0, 0, 0]} screenImage={screenImage} isVisible={visible} />
+          <Model position={[0, 0, 0]} screenImage={screenImage} isVisible={isVisible} />
         </Canvas>
       </div>
-    </div >
+    </div>
   );
 }
-

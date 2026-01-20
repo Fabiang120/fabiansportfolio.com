@@ -19,16 +19,35 @@
 .textarea {
     z-index: 10;
     display: flex;
-    padding-left: 3rem;
     flex-direction: column;
     align-items: flex-start;
     order: 2;
     margin-bottom: 6rem;
+    width: 100%;
+    max-width: 28rem;
+    margin-inline: auto;
+}
+
+@media (min-width: 632px) {
+    .textarea {
+        z-index: 10;
+        margin-top: -8rem;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        order: 2;
+        margin-bottom: 6rem;
+        width: 100%;
+        max-width: 28rem;
+        margin-inline: auto;
+    }
+
 }
 
 @media (min-width: 768px) {
     .textarea {
         margin-left: 0;
+        margin-top: 0rem;
         margin-right: 0;
         width: 33.333333%;
         display: block;

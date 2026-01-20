@@ -148,7 +148,6 @@ export function DisplacementSphere() {
             renderer.current.dispose();
             sphere.current.geometry.dispose();
             sphere.current.material.dispose();
-            renderer.current.dispose();
         }
     }, []);
 

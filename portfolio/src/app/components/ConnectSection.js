@@ -8,41 +8,58 @@ export default function ConnectSection() {
         router.push("/Message");
     }
     return (
-        <section id="connect" className="flex flex-col items-start md:flex-row md:items-center mb-24 relative z-0 pl-12 md:pl-20 overflow-visible ">
-            <div className="textarea z-10 w-[90%] md:w-1/3">
+        <section id="connect" className="flex flex-col items-start md:flex-row md:items-center mb-24 relative z-0 overflow-visible pl-12 md:pl-16">
+            <div className="textarea z-10 w-[90%] md:w-1/3 pl-12">
                 <div className="intro py-5 flex items-start gap-4">
-                    <img
+                    <motion.img
+                        initial={{ x: -100, y: -50, opacity: 0, rotate: -15 }}
+                        whileInView={{ x: 0, y: 0, opacity: 1, rotate: 0 }}
+                        viewport={{ once: true, amount: 0.4 }}
+                        transition={{
+                            type: "spring",
+                            stiffness: 40,
+                            damping: 15,
+                            duration: 1.2
+                        }}
                         className="h-55 drop-shadow-lg"
                         src="/images/Cuban-Trogon.png"
                         alt="Cuban Trogon"
                     />
-                    <div className="speech-bubble relative bg-cyan-400 rounded-2xl px-2 py-1 md:px-4 md:py-2 mt-2">
+                    <motion.div
+                        initial={{ scale: 0, opacity: 0 }}
+                        whileInView={{ scale: 1, opacity: 1 }}
+                        viewport={{ once: true, amount: 0.4 }}
+                        transition={{
+                            type: "spring",
+                            stiffness: 300,
+                            damping: 20,
+                            delay: 1.6
+                        }}
+                        className="speech-bubble relative bg-cyan-400 rounded-2xl px-2 py-1 md:px-4 md:py-2 mt-2">
                         <h2 className="text-5xl font-semibold tracking-tight leading-tight text-black/90">Hola!</h2>
-                        {/* Speech bubble tail */}
                         <div className="absolute -left-2 top-6 w-0 h-0 border-t-8 border-t-transparent border-r-8 border-r-cyan-400 border-b-8 border-b-transparent"></div>
-                    </div>
+                    </motion.div>
                 </div>
 
-                <motion.p
+                <motion.div
                     initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: 1, duration: 2 }}
-                    className="mt-4 text-lg leading-relaxed text-gray-300">My name is Fabian, and I dedicate most of my time to studying at the University of Florida and expanding my business, Fabian’s General Corner LLC. My work spans full-stack engineering, systems programming, applied machine learning, and API-driven automation. Currently, I’ve been focused on crafting clean, modern web experiences with Tailwind and Next.js, alongside developing a Minecraft mod. If you’re interested in exploring more of my work, scroll down to the next section!</motion.p>
-                <motion.p
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: 1, duration: 2 }}
-                    className="mt-4 text-lg leading-relaxed text-gray-300">Outside of my work, I push myself through boxing training, weightlifting, running, and disciplined nutrition planning. P.S. The bird featured here is the tocororo, also known as the “freedom bird”, the national bird of Cuba, representing resilience and independence.</motion.p>
-                <motion.button
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: 1, duration: 2 }}
-                    className="mt-5 mb-5 font-bold rounded cursor-pointer text-cyan-500" onClick={() => handleClick()}>Send Me a Message
-                </motion.button>
+                    whileInView={{ opacity: 1 }}
+                    viewport={{ once: true, amount: 0.4 }}
+                    transition={{ delay: 2, duration: 2 }}
+                >
+                    <p className="mt-4 text-lg leading-relaxed text-gray-300">My name is Fabian, and I dedicate most of my time to studying at the University of Florida and expanding my business, Fabian's General Corner LLC. My work spans full-stack engineering, systems programming, applied machine learning, and API-driven automation. Currently, I've been focused on crafting clean, modern web experiences with Tailwind and Next.js, alongside developing a Minecraft mod. If you're interested in exploring more of my work, scroll down to the next section!</p>
+                    <p className="mt-4 text-lg leading-relaxed text-gray-300">Outside of my work, I push myself through boxing training, weightlifting, running, and disciplined nutrition planning. P.S. The bird featured here is the tocororo, also known as the "freedom bird", the national bird of Cuba, representing resilience and independence.</p>
+                    <button className="mt-5 mb-5 font-bold rounded cursor-pointer text-cyan-500" onClick={() => handleClick()}>Send Me a Message</button>
+                </motion.div>
             </div>
-            <div className="selfimage flex-1 h-full border border-white">
+            <motion.div
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true, amount: 0.4 }}
+                transition={{ delay: 2, duration: 2 }}
+                className="selfimage flex-1 h-full border border-white">
                 Coming soon..
-            </div>
+            </motion.div>
         </section>
     );
 }
