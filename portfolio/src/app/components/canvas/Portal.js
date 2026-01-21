@@ -62,7 +62,7 @@ export default function Portal() {
     return () => observer.disconnect();
   }, []);
   return (
-    <div className="relative w-full" style={{ minHeight: "1000px" }} ref={canvasRef}>
+    <div className="relative w-full" style={{ minHeight: "150vh" }} ref={canvasRef}>
       {/* Canvas layer - in front */}
       <div className="absolute inset-0 z-10" style={{ pointerEvents: "none" }}>
         <Canvas shadows={false} camera={{ position: [0, 2, 15], fov: 45 }} style={{ background: "transparent" }} gl={{ alpha: true }}>

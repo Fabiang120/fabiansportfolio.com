@@ -50,13 +50,7 @@ export function DisplacementSphere() {
 
         return () => observer.disconnect();
     }, []);
-
-    // Fade in effect
-    useEffect(() => {
-        requestAnimationFrame(() => {
-            setVisible(true);
-        });
-    }, []);
+    const rafId = useRef(null);
     useEffect(() => {
         scene.current = new Scene();
 
@@ -102,11 +96,9 @@ export function DisplacementSphere() {
 
         scene.current.add(light);
         const animate = () => {
-            if (!isVisibleRef.current) {
-                requestAnimationFrame(animate);
-                return;
-            }
-            requestAnimationFrame(animate);
+            rafId.current = requestAnimationFrame(animate);
+            if (!isVisibleRef.current) return;
+            renderer.current.render(scene.current, camera.current);
             // Uses position += velocity x timepassed
             const now = performance.now();
             const delta = (now - lastTime.current) * 0.001;
@@ -145,6 +137,7 @@ export function DisplacementSphere() {
 
         return () => {
             window.removeEventListener('resize', handleResize);
+            cancelAnimationFrame(rafId.current);
             renderer.current.dispose();
             sphere.current.geometry.dispose();
             sphere.current.material.dispose();
