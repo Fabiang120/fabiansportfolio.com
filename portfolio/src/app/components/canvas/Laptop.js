@@ -13,6 +13,8 @@ const rotationSpringConfig = {
   restSpeed: 0.001,
 };
 
+
+
 export function Model({ screenImage, isVisible, ...props }) {
   const { nodes, materials } = useGLTF('/macbook-pro.glb');
 
@@ -114,21 +116,18 @@ function Lights() {
 export default function Laptop({ screenImage, isVisible }) {
 
   return (
-    <div className="relative w-full aspect-[12/10]">
-      <div className="absolute inset-0" >
-        <Canvas
-          flat
-          camera={{ position: [0, 0, 8], fov: 36 }}
-          dpr={2}
-          onCreated={({ gl }) => {
-            gl.outputColorSpace = 'srgb';
-          }}
-        >
-
-          <Lights />
-          <Model position={[0, 0, 0]} screenImage={screenImage} isVisible={isVisible} />
-        </Canvas>
-      </div>
+    <div className="w-full h-full">
+      <Canvas
+        flat
+        camera={{ position: [0, 0, 8], fov: 30 }}
+        dpr={2}
+        onCreated={({ gl }) => {
+          gl.outputColorSpace = 'srgb';
+        }}
+      >
+        <Lights />
+        <Model position={[0, 0, 0]} screenImage={screenImage} isVisible={isVisible} />
+      </Canvas>
     </div>
   );
 }

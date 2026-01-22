@@ -86,7 +86,7 @@ export function DisplacementSphere() {
             shader.fragmentShader = fragmentShader;
         };
 
-        const geometry = new SphereGeometry(32, 128, 128);
+        const geometry = new SphereGeometry(32, 102, 102);
         sphere.current = new Mesh(geometry, material);
         scene.current.add(sphere.current);
         const light = new DirectionalLight(0xffffff, 2.0);

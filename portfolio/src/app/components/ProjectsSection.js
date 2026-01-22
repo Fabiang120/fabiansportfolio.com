@@ -63,7 +63,7 @@ export default function ProjectsSection() {
         <section id="projects" className="flex flex-col justify-center relative overflow-hidden">
             <div className="projects-grid px-12 md:pl-16">
                 {/* Project 1 */}
-                <div ref={project1Ref} className="Project1 min-h-screen md:h-screen flex flex-col md:items-center md:flex-row items-start relative">
+                <div ref={project1Ref} className="Project1 min-h-screen lg:h-screen flex flex-col lg:items-center lg:flex-row items-start relative">
                     {mounted1 && (
                         <>
                             <div className={styles.textarea}>
@@ -86,14 +86,16 @@ export default function ProjectsSection() {
                                     whileHover="hover"
                                     className="px-4 py-2 mt-5 text-sm sm:text-base text-black font-medium rounded bg-cyan-500" onClick={() => handleClick("PartingGift")}>View Project</motion.button>
                             </div>
-                            <div className="laptop w-full md:w-1/2 relative order-1 md:order-2">
-                                <div className="w-[120%] -ml-[8%] md:min-w-[180%] lg:min-w-[160%] relative top-[6%]">
+                            {/* 100vw to spread across viewport, lg is breakpoint for flex-row */}
+                            {/* translate-x-30 to push to the right in lg */}
+                            <div className="laptop -ml-12 lg:-ml-0 lg:translate-x-30 w-[100vw] h-[70vh] md:h-[100vh] lg:h-[110vh] relative order-1 lg:order-2">
+                                <div className="h-full">
                                     <ProjectTag className={styles.projectTag} />
                                     <motion.div
                                         initial={{ opacity: 0 }}
                                         animate={{ opacity: 1 }}
                                         transition={{ delay: 0.2, duration: 2 }}
-                                        className="relative z-10">
+                                        className="relative z-10 h-full">
                                         <Laptop screenImage="/images/parting.png" isVisible={visible1} />
                                     </motion.div>
                                 </div>
@@ -103,7 +105,7 @@ export default function ProjectsSection() {
                 </div>
 
                 {/* Project 2 */}
-                <div ref={project2Ref} className="Project2 min-h-screen md:h-screen flex flex-col md:items-center md:flex-row items-start relative">
+                <div ref={project2Ref} className="Project2 min-h-screen lg:h-screen flex flex-col lg:items-center lg:flex-row items-start relative">
                     {mounted2 && (
                         <>
                             <div className={styles.textarea}>
@@ -126,14 +128,14 @@ export default function ProjectsSection() {
                                     whileHover="hover"
                                     className="px-4 py-2 mt-5 text-sm sm:text-base text-black font-medium rounded bg-cyan-500" onClick={() => handleClick("FBA")}>View Project</motion.button>
                             </div>
-                            <div className="laptop w-full md:w-1/2 relative order-1 md:order-2">
-                                <div className="w-[120%] -ml-[8%] md:min-w-[180%] lg:min-w-[160%] relative top-[6%]">
+                            <div className="laptop -ml-12 lg:-ml-0 lg:translate-x-30 w-[100vw] h-[70vh] md:h-[95vh] lg:h-[110vh] relative order-1 lg:order-2">
+                                <div className="h-full">
                                     <ProjectTag className={styles.projectTag} />
                                     <motion.div
                                         initial={{ opacity: 0 }}
                                         animate={{ opacity: 1 }}
                                         transition={{ delay: 0.2, duration: 2 }}
-                                        className="relative z-10">
+                                        className="relative z-10 h-full">
                                         <Laptop screenImage="/images/excel.png" isVisible={visible2} />
                                     </motion.div>
                                 </div>
@@ -143,7 +145,7 @@ export default function ProjectsSection() {
                 </div>
 
                 {/* Project 3 */}
-                <div ref={project3Ref} className="Project3 min-h-screen md:h-screen flex flex-col md:items-center md:flex-row items-start relative">
+                <div ref={project3Ref} className="Project3 min-h-screen lg:h-screen flex flex-col lg:items-center lg:flex-row items-start relative">
                     {mounted3 && (
                         <>
                             <div className={styles.textarea}>
@@ -166,14 +168,14 @@ export default function ProjectsSection() {
                                     whileHover="hover"
                                     className="px-4 py-2 mt-5 text-sm sm:text-base text-black font-medium rounded bg-cyan-500" onClick={() => handleClick("Vault")}>View Project</motion.button>
                             </div>
-                            <div className="laptop w-full md:w-1/2 relative order-1 md:order-2">
-                                <div className="w-[120%] -ml-[8%] md:min-w-[180%] lg:min-w-[160%] relative top-[6%]">
+                            <div className="laptop -ml-12 lg:-ml-0 lg:translate-x-30 w-[100vw] h-[70vh]  md:h-[95vh] lg:h-[110vh] relative order-1 lg:order-2">
+                                <div className="h-full">
                                     <ProjectTag className={styles.projectTag} />
                                     <motion.div
                                         initial={{ opacity: 0 }}
                                         animate={{ opacity: 1 }}
                                         transition={{ delay: 0.2, duration: 2 }}
-                                        className="relative z-10">
+                                        className="relative z-10 h-full">
                                         <Laptop screenImage="/images/vaul.png" isVisible={visible3} />
                                     </motion.div>
                                 </div>

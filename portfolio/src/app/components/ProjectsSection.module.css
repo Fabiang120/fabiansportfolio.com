@@ -1,18 +1,18 @@
 .projectTag {
     position: absolute;
-    width: 50%;
-    left: 40%;
-    bottom: 24%;
+    width: 60%;
+    left: 38%;
+    bottom: 20%;
     z-index: 0;
 }
 
 @media (min-width: 768px) {
     .projectTag {
         width: 60%;
-        left: auto;
+        left: 37%;
         transform: translateY(50%);
         right: 7rem;
-        bottom: 31%;
+        bottom: 23%;
     }
 }
 
@@ -25,26 +25,10 @@
     margin-bottom: 6rem;
     width: 100%;
     max-width: 28rem;
-    margin-inline: auto;
 }
 
-@media (min-width: 632px) {
-    .textarea {
-        z-index: 10;
-        margin-top: -8rem;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        order: 2;
-        margin-bottom: 6rem;
-        width: 100%;
-        max-width: 28rem;
-        margin-inline: auto;
-    }
 
-}
-
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
     .textarea {
         margin-left: 0;
         margin-top: 0rem;

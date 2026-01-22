@@ -1,6 +1,6 @@
 
 "use client";
-import { useRef, useState, useEffect } from 'react'
+import { useRef, useState, useEffect, useMemo } from 'react'
 import { Canvas } from '@react-three/fiber'
 import { useGLTF, useTexture } from '@react-three/drei'
 import { DoubleSide } from 'three'
@@ -26,6 +26,13 @@ export function Model({ isVisible, ...props }) {
   const handlePortal = (event) => {
     router.push("/works");
   }
+  const uniforms = useMemo(() => ({
+    uTime: { value: 0 }
+  }), []);
+  const shaders = useMemo(() => ({
+    vertex: vertexShader,
+    fragment: fragmentShader
+  }), []);
   return (
     <group {...props} dispose={null}>
       <mesh geometry={nodes.Cube.geometry} position={[-1.079, 0.476, 1.563]}
@@ -33,9 +40,7 @@ export function Model({ isVisible, ...props }) {
         <meshStandardMaterial {...textures} />
       </mesh>
       <mesh onClick={handlePortal} geometry={nodes.Circle.geometry} position={[3.185, 3.369, 1.96]}>
-        <shaderMaterial ref={shaderRef} vertexShader={vertexShader} fragmentShader={fragmentShader} uniforms={{
-          uTime: { value: 0 }
-        }}
+        <shaderMaterial ref={shaderRef} vertexShader={shaders.vertex} fragmentShader={shaders.fragment} uniforms={uniforms}
         />
       </mesh>
     </group >
@@ -65,7 +70,7 @@ export default function Portal() {
     <div className="relative w-full" style={{ minHeight: "150vh" }} ref={canvasRef}>
       {/* Canvas layer - in front */}
       <div className="absolute inset-0 z-10" style={{ pointerEvents: "none" }}>
-        <Canvas shadows={false} camera={{ position: [0, 2, 15], fov: 45 }} style={{ background: "transparent" }} gl={{ alpha: true }}>
+        <Canvas frameloop={visible ? "always" : "never"} camera={{ position: [0, 2, 15], fov: 45 }} style={{ background: "transparent" }} gl={{ alpha: true }}>
           <ambientLight intensity={0.9} />
           <directionalLight position={[5, 5, 5]} intensity={1} />
           <Model position={[-1.7, -5.6, 0]} scale={1.7} isVisible={visible} />
