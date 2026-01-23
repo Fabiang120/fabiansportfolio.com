@@ -37,6 +37,7 @@ export default function SideNav() {
             {!isOpen && (
                 <motion.button
                     onClick={() => setIsOpen(true)}
+                    style={{ cursor: "pointer" }}
                     className="fixed top-4 right-4 md:top-6 md:right-6 z-30"
                 >
                     <div className="flex flex-col gap-1">
@@ -80,10 +81,10 @@ export default function SideNav() {
                             </ul>
                         </div>
                         <div className="social-links flex gap-4 py-5 px-5 md:px-8">
-                            <a href="https://www.linkedin.com/in/fabian-garcia-787006292/" className="text-gray-400 hover:text-white transition-colors">
+                            <a href="https://www.linkedin.com/in/fabian-garcia-787006292/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
                                 <FaLinkedinIn className="w-5 h-5 md:w-6 md:h-6 lg:w-7 lg:h-7" />
                             </a>
-                            <a href="https://github.com/Fabiang120" className="text-gray-400 hover:text-white transition-colors">
+                            <a href="https://github.com/Fabiang120" target="_blank" rel="noopener noreferrer" className="text-gray-400  hover:text-white transition-colors">
                                 <IoLogoGithub className="w-5 h-5 md:w-6 md:h-6 lg:w-7 lg:h-7" />
                             </a>
                         </div>

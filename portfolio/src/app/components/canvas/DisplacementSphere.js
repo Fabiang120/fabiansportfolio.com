@@ -32,6 +32,24 @@ export function DisplacementSphere() {
     const start = useRef(Date.now());
     const [visible, setVisible] = useState(true);
     const isVisibleRef = useRef(true);
+    const [webGLSupported, setWebGLSupported] = useState(true);
+
+    // Check WebGL support on mount
+    useEffect(() => {
+        try {
+            const canvas = document.createElement('canvas');
+            const supported = !!(window.WebGLRenderingContext &&
+                (canvas.getContext('webgl') || canvas.getContext('experimental-webgl')));
+            setWebGLSupported(supported);
+        } catch (e) {
+            setWebGLSupported(false);
+        }
+    }, []);
+
+    // If WebGL not supported, show nothing (graceful degradation)
+    if (!webGLSupported) {
+        return null;
+    }
 
     // Sync ref when state changes
     useEffect(() => {
@@ -86,7 +104,7 @@ export function DisplacementSphere() {
             shader.fragmentShader = fragmentShader;
         };
 
-        const geometry = new SphereGeometry(32, 102, 102);
+        const geometry = new SphereGeometry(32, 128, 128);
         sphere.current = new Mesh(geometry, material);
         scene.current.add(sphere.current);
         const light = new DirectionalLight(0xffffff, 2.0);
@@ -98,7 +116,6 @@ export function DisplacementSphere() {
         const animate = () => {
             rafId.current = requestAnimationFrame(animate);
             if (!isVisibleRef.current) return;
-            renderer.current.render(scene.current, camera.current);
             // Uses position += velocity x timepassed
             const now = performance.now();
             const delta = (now - lastTime.current) * 0.001;

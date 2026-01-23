@@ -87,8 +87,9 @@ export default function ProjectsSection() {
                                     className="px-4 py-2 mt-5 text-sm sm:text-base text-black font-medium rounded bg-cyan-500" onClick={() => handleClick("PartingGift")}>View Project</motion.button>
                             </div>
                             {/* 100vw to spread across viewport, lg is breakpoint for flex-row */}
-                            {/* translate-x-30 to push to the right in lg */}
-                            <div className="laptop -ml-12 lg:-ml-0 lg:translate-x-30 w-[100vw] h-[70vh] md:h-[100vh] lg:h-[110vh] relative order-1 lg:order-2">
+                            {/* translate-x-30 to push to the right in lg, need to limit width of laptop wrapper on lg screens */}
+                            {/* */}
+                            <div className="laptop -ml-12 w-screen h-[80vh] md:w-[95vw] md:h-[85vh] lg:ml-0 lg:-mr-40 lg:h-[95vh] relative order-1 lg:order-2">
                                 <div className="h-full">
                                     <ProjectTag className={styles.projectTag} />
                                     <motion.div
@@ -128,7 +129,7 @@ export default function ProjectsSection() {
                                     whileHover="hover"
                                     className="px-4 py-2 mt-5 text-sm sm:text-base text-black font-medium rounded bg-cyan-500" onClick={() => handleClick("FBA")}>View Project</motion.button>
                             </div>
-                            <div className="laptop -ml-12 lg:-ml-0 lg:translate-x-30 w-[100vw] h-[70vh] md:h-[95vh] lg:h-[110vh] relative order-1 lg:order-2">
+                            <div className="laptop -ml-12 w-screen h-[80vh] md:w-[95vw] md:h-[85vh] lg:ml-0 lg:-mr-40 lg:h-[95vh] relative order-1 lg:order-2">
                                 <div className="h-full">
                                     <ProjectTag className={styles.projectTag} />
                                     <motion.div
@@ -168,7 +169,7 @@ export default function ProjectsSection() {
                                     whileHover="hover"
                                     className="px-4 py-2 mt-5 text-sm sm:text-base text-black font-medium rounded bg-cyan-500" onClick={() => handleClick("Vault")}>View Project</motion.button>
                             </div>
-                            <div className="laptop -ml-12 lg:-ml-0 lg:translate-x-30 w-[100vw] h-[70vh]  md:h-[95vh] lg:h-[110vh] relative order-1 lg:order-2">
+                            <div className="laptop -ml-12 w-screen h-[80vh] md:w-[95vw] md:h-[85vh] lg:ml-0 lg:-mr-40 lg:h-[95vh] relative order-1 lg:order-2">
                                 <div className="h-full">
                                     <ProjectTag className={styles.projectTag} />
                                     <motion.div
