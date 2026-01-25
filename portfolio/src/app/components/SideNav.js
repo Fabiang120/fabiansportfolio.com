@@ -53,7 +53,7 @@ export default function SideNav() {
                         initial={{ y: "-100%" }}
                         animate={{ y: 0 }}
                         exit={{ y: "-100%" }}
-                        transition={{ type: "tween", duration: 0.3 }}
+                        transition={{ type: "tween", duration: 0.5 }}
                         className="fixed inset-0 backdrop-blur-xl z-20 bg-black/80 flex flex-col">
                         <div className="flex justify-between items-center py-5 px-5 md:px-8">
                             <FLogo className="w-12 h-12 md:w-14 md:h-14 lg:w-16 lg:h-16" />

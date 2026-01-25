@@ -1,4 +1,5 @@
 export const vertexShader = `
+// Shaders by Hamish Williams 
 #define PHONG
 
 vec3 mod289(vec3 x)

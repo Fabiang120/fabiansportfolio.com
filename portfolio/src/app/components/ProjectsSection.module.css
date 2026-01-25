@@ -27,26 +27,36 @@
 }
 
 .textarea {
-    z-index: 10;
-    padding-left: 6rem;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    order: 2;
-    margin-bottom: 6rem;
-    width: 100%;
     max-width: 28rem;
 }
 
+/*
+@media (min-width: 768px) {
+    .textarea {
+        z-index: 10;
+        padding-left: 6rem;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        order: 2;
+        margin-bottom: 6rem;
+        width: 100%;
+        max-width: 40rem;
+    }
+}
 
 @media (min-width: 1024px) {
     .textarea {
         padding-left: 0rem;
-        margin-left: 0;
+        margin-left: 6rem;
         margin-top: 0rem;
         margin-right: 0;
-        width: 33.333333%;
         display: block;
+        flex-shrink: 1;
+        width: 35%;
+        max-width: 25rem;
+        min-width: 15rem;
         order: 1;
     }
 }
+    */

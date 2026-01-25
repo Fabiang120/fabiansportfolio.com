@@ -61,12 +61,12 @@ export default function ProjectsSection() {
     }, []);
     return (
         <section id="projects" className="flex flex-col justify-center relative overflow-hidden">
-            <div className="projects-grid px-12 md:pl-16">
+            <div className="px-12 md:pl-16 lg:pl-32">
                 {/* Project 1 */}
-                <div ref={project1Ref} className="Project1 min-h-screen lg:h-screen flex flex-col lg:items-center lg:flex-row items-start relative">
+                <div ref={project1Ref} className="Project1 min-h-screen grid grid-cols-1 items-center gap-12 lg:grid-cols-[minmax(260px,32%)_1fr] lg:gap-8 relative">
                     {mounted1 && (
                         <>
-                            <div className={styles.textarea}>
+                            <div className={`${styles.textarea} order-2 lg:order-1`}>
                                 <GiftBoxIcon className="text-cyan-400 mb-4" />
                                 <motion.h3
                                     initial={{ y: 20, opacity: 0 }}
@@ -77,7 +77,7 @@ export default function ProjectsSection() {
                                     initial={{ y: 20, opacity: 0 }}
                                     animate={{ y: 0, opacity: 1 }}
                                     transition={{ delay: 1.2, duration: 1, type: 'tween' }}
-                                    className="mt-4 text-[0.95rem] sm:text-base md:text-lg leading-relaxed text-gray-300">Encrypted digital will and scheduled message delivery platform, automating the process for those that pass away.</motion.p>
+                                    className="mt-4 text-[0.95rem] sm:text-base md:text-lg leading-relaxed text-gray-300">Encrypted digital will and scheduled message delivery platform, helping with the process for those that pass away.</motion.p>
                                 <motion.button
                                     variants={buttonVariants}
                                     initial={{ y: 20, opacity: 0 }}
@@ -89,17 +89,15 @@ export default function ProjectsSection() {
                             {/* 100vw to spread across viewport, lg is breakpoint for flex-row */}
                             {/* translate-x-30 to push to the right in lg, need to limit width of laptop wrapper on lg screens */}
                             {/* */}
-                            <div className="laptop -ml-12 w-screen h-[80vh] md:w-[95vw] md:h-[85vh] lg:ml-0 lg:-mr-40 lg:h-[95vh] relative order-1 lg:order-2">
-                                <div className="h-full">
-                                    <ProjectTag className={styles.projectTag} />
-                                    <motion.div
-                                        initial={{ opacity: 0 }}
-                                        animate={{ opacity: 1 }}
-                                        transition={{ delay: 0.2, duration: 2 }}
-                                        className="relative z-10 h-full">
-                                        <Laptop screenImage="/images/parting.png" isVisible={visible1} />
-                                    </motion.div>
-                                </div>
+                            <div className="laptop relative w-full lg:w-[120%] min-w-0 order-1 lg:order-2">
+                                <ProjectTag className={styles.projectTag} />
+                                <motion.div
+                                    initial={{ opacity: 0 }}
+                                    animate={{ opacity: 1 }}
+                                    transition={{ delay: 0.2, duration: 2 }}
+                                    className="relative w-full h-full aspect-[12/10]">
+                                    <Laptop screenImage="/images/parting.png" isVisible={visible1} />
+                                </motion.div>
                             </div>
                         </>
                     )}
@@ -129,7 +127,7 @@ export default function ProjectsSection() {
                                     whileHover="hover"
                                     className="px-4 py-2 mt-5 text-sm sm:text-base text-black font-medium rounded bg-cyan-500" onClick={() => handleClick("FBA")}>View Project</motion.button>
                             </div>
-                            <div className="laptop -ml-12 w-screen h-[80vh] md:w-[95vw] md:h-[85vh] lg:ml-0 lg:-mr-40 lg:h-[95vh] relative order-1 lg:order-2">
+                            <div className="laptop -ml-12 lg:-ml-24 w-screen h-[50vh] md:w-[95vw] md:h-[85vh] lg:ml-0 lg:h-[95vh] relative order-1 lg:order-2">
                                 <div className="h-full">
                                     <ProjectTag className={styles.projectTag} />
                                     <motion.div
@@ -160,7 +158,7 @@ export default function ProjectsSection() {
                                     initial={{ y: 20, opacity: 0 }}
                                     animate={{ y: 0, opacity: 1 }}
                                     transition={{ delay: 1.2, duration: 1, type: 'tween' }}
-                                    className="mt-4 text-[0.95rem] sm:text-base md:text-lg leading-relaxed text-gray-300">Time capsule social media app for storing and scheduling content to unlock.</motion.p>
+                                    className="mt-4 text-[0.95rem] sm:text-base md:text-lg leading-relaxed text-gray-300">Time capsule social media app for storing and scheduling content to unlock with friends & family.</motion.p>
                                 <motion.button
                                     variants={buttonVariants}
                                     initial={{ y: 20, opacity: 0 }}
@@ -169,7 +167,7 @@ export default function ProjectsSection() {
                                     whileHover="hover"
                                     className="px-4 py-2 mt-5 text-sm sm:text-base text-black font-medium rounded bg-cyan-500" onClick={() => handleClick("Vault")}>View Project</motion.button>
                             </div>
-                            <div className="laptop -ml-12 w-screen h-[80vh] md:w-[95vw] md:h-[85vh] lg:ml-0 lg:-mr-40 lg:h-[95vh] relative order-1 lg:order-2">
+                            <div className="laptop -ml-12 lg:-ml-24 w-screen h-[50vh] md:w-[95vw] md:h-[85vh] lg:ml-0 lg:h-[95vh] relative order-1 lg:order-2">
                                 <div className="h-full">
                                     <ProjectTag className={styles.projectTag} />
                                     <motion.div
@@ -185,6 +183,6 @@ export default function ProjectsSection() {
                     )}
                 </div>
             </div>
-        </section>
+        </section >
     );
 }

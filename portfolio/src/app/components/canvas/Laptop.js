@@ -1,10 +1,9 @@
-import { useRef, useState, useEffect, useMemo } from 'react';
-import { Canvas, useFrame } from '@react-three/fiber';
+import { useRef, useEffect, useMemo } from 'react';
+import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { useGLTF, useTexture } from '@react-three/drei';
 import { Color } from 'three';
 import { throttle } from 'lodash-es';
 import { useSpring } from 'framer-motion';
-
 
 const rotationSpringConfig = {
   stiffness: 60,
@@ -14,29 +13,28 @@ const rotationSpringConfig = {
 };
 
 
-
 export function Model({ screenImage, isVisible, ...props }) {
   const { nodes, materials } = useGLTF('/macbook-pro.glb');
 
   const groupRef = useRef();
   const lidRef = useRef();
 
-  // Direct rotation values for mouse tracking
+
   const targetRotationX = useRef(0);
   const targetRotationY = useRef(0);
 
-  // Spring only for lid opening animation
   const lidRotation = useSpring(1.58, rotationSpringConfig);
 
   const screenTexture = useTexture(screenImage);
   screenTexture.anisotropy = 16;
   screenTexture.flipY = false;
+  screenTexture.generateMipmaps = false;
   materials.Frame.color = new Color(0x1f2025);
 
-
-
-  // Mouse move handler
   useEffect(() => {
+    if (isVisible) {
+      lidRotation.set(0);
+    }
     if (!isVisible) return;
 
     const handleMouseMove = throttle((event) => {
@@ -48,22 +46,18 @@ export function Model({ screenImage, isVisible, ...props }) {
     }, 16);
 
     window.addEventListener('mousemove', handleMouseMove);
+
     return () => {
       window.removeEventListener('mousemove', handleMouseMove);
     };
-  }, [isVisible]);
+  }, [isVisible, lidRotation]);
+
 
   useEffect(() => {
     return () => {
       screenTexture.dispose();
     };
-  }, []);
-
-  useEffect(() => {
-    if (isVisible) {
-      lidRotation.set(0);
-    }
-  }, [isVisible, lidRotation]);
+  }, [screenTexture]);
 
   useFrame(() => {
     if (!isVisible) return;
@@ -113,14 +107,16 @@ function Lights() {
   );
 }
 
-export default function Laptop({ screenImage, isVisible }) {
 
+
+export default function Laptop({ screenImage, isVisible }) {
   return (
     <div className="w-full h-full">
       <Canvas
         flat
-        camera={{ position: [0, 0, 8], fov: 30 }}
+        camera={{ position: [0, 0, 8], fov: 36 }}
         dpr={2}
+        resize={{ scroll: false, debounce: { scroll: 50, resize: 0 } }}
         onCreated={({ gl }) => {
           gl.outputColorSpace = 'srgb';
         }}
