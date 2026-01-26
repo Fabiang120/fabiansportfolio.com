@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 export default function ConnectSection() {
     const router = useRouter();
     return (
-        <section id="connect" className="flex flex-col lg:flex-row items-center mb-24 relative z-0 overflow-visible lg:pl-16">
+        <section id="connect" className="flex flex-col lg:flex-row items-center mb-24 relative z-0 overflow-visible lg:pl-[10rem]">
             <div className="textarea z-10 w-[70%] lg:w-1/3">
                 <div className="intro py-5 flex items-start gap-4">
                     <motion.img

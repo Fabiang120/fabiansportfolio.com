@@ -26,6 +26,7 @@ export default function IntroSection() {
                 transition={{ delay: 1.6, duration: 2 }}
             >
                 <DisplacementSphere />
+
             </motion.div>
             <div className="flex flex-col justify-start h-full relative pt-30 lg:pt-15 gap-6 md:gap-2 lg:gap-1">
                 <motion.div
