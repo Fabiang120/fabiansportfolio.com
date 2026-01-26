@@ -66,7 +66,7 @@ export default function ProjectsSection() {
                 <div ref={project1Ref} className="Project1 min-h-screen grid grid-cols-1 items-center gap-12 lg:grid-cols-[minmax(260px,32%)_1fr] lg:gap-8 relative">
                     {mounted1 && (
                         <>
-                            <div className={`${styles.textarea} order-2 lg:order-1`}>
+                            <div className={`${styles.textarea} w-[70%] lg:w-full justify-self-center lg:justify-self-start order-2 lg:order-1`}>
                                 <GiftBoxIcon className="text-cyan-400 mb-4" />
                                 <motion.h3
                                     initial={{ y: 20, opacity: 0 }}
@@ -107,7 +107,7 @@ export default function ProjectsSection() {
                 <div ref={project2Ref} className="Project2 min-h-screen grid grid-cols-1 items-center gap-12 lg:grid-cols-[minmax(260px,32%)_1fr] lg:gap-8 relative">
                     {mounted2 && (
                         <>
-                            <div className={`${styles.textarea} order-2 lg:order-1`}>
+                            <div className={`${styles.textarea} w-[70%] justify-self-center lg:justify-self-start lg:w-full order-2 lg:order-1`}>
                                 <DogBone className="text-cyan-400 mb-4" />
                                 <motion.h3
                                     initial={{ y: 20, opacity: 0 }}
@@ -145,7 +145,7 @@ export default function ProjectsSection() {
                 <div ref={project3Ref} className="Project3 min-h-screen grid grid-cols-1 items-center gap-12 lg:grid-cols-[minmax(260px,32%)_1fr] lg:gap-8 relative">
                     {mounted3 && (
                         <>
-                            <div className={`${styles.textarea} order-2 lg:order-1`}>
+                            <div className={`${styles.textarea} w-[70%] justify-self-center lg:justify-self-start lg:w-full order-2 lg:order-1`}>
                                 <Vault className="text-cyan-400 mb-4" />
                                 <motion.h3
                                     initial={{ y: 20, opacity: 0 }}

@@ -29,4 +29,7 @@
 .textarea {
     max-width: 28rem;
     margin-bottom: 6rem;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
 }
