@@ -89,7 +89,7 @@ export default function ProjectsSection() {
                             {/* 100vw to spread across viewport, lg is breakpoint for flex-row */}
                             {/* translate-x-30 to push to the right in lg, need to limit width of laptop wrapper on lg screens */}
                             {/* */}
-                            <div className="laptop relative w-full lg:w-[120%] min-w-0 order-1 lg:order-2">
+                            <div className="laptop relative sm:w-[140%]  sm:left-1/2 sm:translate-x-[-50%] md:w-full lg:w-[120%] min-w-0 order-1 lg:order-2">
                                 <ProjectTag className={styles.projectTag} />
                                 <motion.div
                                     initial={{ opacity: 0 }}
