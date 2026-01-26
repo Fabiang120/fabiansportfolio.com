@@ -89,7 +89,7 @@ export default function ProjectsSection() {
                             {/* 100vw to spread across viewport, lg is breakpoint for flex-row */}
                             {/* translate-x-30 to push to the right in lg, need to limit width of laptop wrapper on lg screens */}
                             {/* */}
-                            <div className="laptop min-w-0 relative w-[150%] sm:w-[140%] left-1/2 translate-x-[-50%] md:max-w-[950px] lg:w-[120%] order-1 lg:order-2">
+                            <div className="laptop min-w-0 relative w-[200%] sm:w-[140%] left-1/2 translate-x-[-50%] md:max-w-[950px] lg:w-[120%] order-1 lg:order-2">
                                 <ProjectTag className={styles.projectTag} />
                                 <motion.div
                                     initial={{ opacity: 0 }}
@@ -127,7 +127,7 @@ export default function ProjectsSection() {
                                     whileHover="hover"
                                     className="px-4 py-2 mt-5 text-sm sm:text-base text-black font-medium rounded bg-cyan-500" onClick={() => handleClick("FBA")}>View Project</motion.button>
                             </div>
-                            <div className="laptop min-w-0 relative w-[150%] sm:w-[140%] left-1/2 translate-x-[-50%] md:max-w-[950px] lg:w-[120%] order-1 lg:order-2">
+                            <div className="laptop min-w-0 relative w-[200%] sm:w-[140%] left-1/2 translate-x-[-50%] md:max-w-[950px] lg:w-[120%] order-1 lg:order-2">
                                 <ProjectTag className={styles.projectTag} />
                                 <motion.div
                                     initial={{ opacity: 0 }}
@@ -165,7 +165,7 @@ export default function ProjectsSection() {
                                     whileHover="hover"
                                     className="px-4 py-2 mt-5 text-sm sm:text-base text-black font-medium rounded bg-cyan-500" onClick={() => handleClick("Vault")}>View Project</motion.button>
                             </div>
-                            <div className="laptop min-w-0 relative w-[150%] sm:w-[140%] left-1/2 translate-x-[-50%] md:max-w-[950px] lg:w-[120%] order-1 lg:order-2">
+                            <div className="laptop min-w-0 relative w-[200%] sm:w-[140%] left-1/2 translate-x-[-50%] md:max-w-[950px] lg:w-[120%] order-1 lg:order-2">
                                 <ProjectTag className={styles.projectTag} />
                                 <motion.div
                                     initial={{ opacity: 0 }}
