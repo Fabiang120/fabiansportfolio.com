@@ -89,7 +89,7 @@ export default function ProjectsSection() {
                             {/* 100vw to spread across viewport, lg is breakpoint for flex-row */}
                             {/* translate-x-30 to push to the right in lg, need to limit width of laptop wrapper on lg screens */}
                             {/* */}
-                            <div className="laptop relative sm:w-[140%]  sm:left-1/2 sm:translate-x-[-50%] md:w-full lg:w-[120%] min-w-0 order-1 lg:order-2">
+                            <div className="laptop min-w-0 relative w-[150%] sm:w-[140%] left-1/2 translate-x-[-50%] md:max-w-[950px] lg:w-[120%] order-1 lg:order-2">
                                 <ProjectTag className={styles.projectTag} />
                                 <motion.div
                                     initial={{ opacity: 0 }}
@@ -104,10 +104,10 @@ export default function ProjectsSection() {
                 </div>
 
                 {/* Project 2 */}
-                <div ref={project2Ref} className="Project2 min-h-screen lg:h-screen flex flex-col lg:items-center lg:flex-row items-start relative">
+                <div ref={project2Ref} className="Project2 min-h-screen grid grid-cols-1 items-center gap-12 lg:grid-cols-[minmax(260px,32%)_1fr] lg:gap-8 relative">
                     {mounted2 && (
                         <>
-                            <div className={styles.textarea}>
+                            <div className={`${styles.textarea} order-2 lg:order-1`}>
                                 <DogBone className="text-cyan-400 mb-4" />
                                 <motion.h3
                                     initial={{ y: 20, opacity: 0 }}
@@ -127,27 +127,25 @@ export default function ProjectsSection() {
                                     whileHover="hover"
                                     className="px-4 py-2 mt-5 text-sm sm:text-base text-black font-medium rounded bg-cyan-500" onClick={() => handleClick("FBA")}>View Project</motion.button>
                             </div>
-                            <div className="laptop -ml-12 lg:-ml-24 w-screen h-[50vh] md:w-[95vw] md:h-[85vh] lg:ml-0 lg:h-[95vh] relative order-1 lg:order-2">
-                                <div className="h-full">
-                                    <ProjectTag className={styles.projectTag} />
-                                    <motion.div
-                                        initial={{ opacity: 0 }}
-                                        animate={{ opacity: 1 }}
-                                        transition={{ delay: 0.2, duration: 2 }}
-                                        className="relative z-10 h-full">
-                                        <Laptop screenImage="/images/excel.png" isVisible={visible2} />
-                                    </motion.div>
-                                </div>
+                            <div className="laptop min-w-0 relative w-[150%] sm:w-[140%] left-1/2 translate-x-[-50%] md:max-w-[950px] lg:w-[120%] order-1 lg:order-2">
+                                <ProjectTag className={styles.projectTag} />
+                                <motion.div
+                                    initial={{ opacity: 0 }}
+                                    animate={{ opacity: 1 }}
+                                    transition={{ delay: 0.2, duration: 2 }}
+                                    className="relative w-full h-full aspect-[12/10]">
+                                    <Laptop screenImage="/images/excel.png" isVisible={visible2} />
+                                </motion.div>
                             </div>
                         </>
                     )}
                 </div>
 
                 {/* Project 3 */}
-                <div ref={project3Ref} className="Project3 min-h-screen lg:h-screen flex flex-col lg:items-center lg:flex-row items-start relative">
+                <div ref={project3Ref} className="Project3 min-h-screen grid grid-cols-1 items-center gap-12 lg:grid-cols-[minmax(260px,32%)_1fr] lg:gap-8 relative">
                     {mounted3 && (
                         <>
-                            <div className={styles.textarea}>
+                            <div className={`${styles.textarea} order-2 lg:order-1`}>
                                 <Vault className="text-cyan-400 mb-4" />
                                 <motion.h3
                                     initial={{ y: 20, opacity: 0 }}
@@ -167,17 +165,15 @@ export default function ProjectsSection() {
                                     whileHover="hover"
                                     className="px-4 py-2 mt-5 text-sm sm:text-base text-black font-medium rounded bg-cyan-500" onClick={() => handleClick("Vault")}>View Project</motion.button>
                             </div>
-                            <div className="laptop -ml-12 lg:-ml-24 w-screen h-[50vh] md:w-[95vw] md:h-[85vh] lg:ml-0 lg:h-[95vh] relative order-1 lg:order-2">
-                                <div className="h-full">
-                                    <ProjectTag className={styles.projectTag} />
-                                    <motion.div
-                                        initial={{ opacity: 0 }}
-                                        animate={{ opacity: 1 }}
-                                        transition={{ delay: 0.2, duration: 2 }}
-                                        className="relative z-10 h-full">
-                                        <Laptop screenImage="/images/vaul.png" isVisible={visible3} />
-                                    </motion.div>
-                                </div>
+                            <div className="laptop min-w-0 relative w-[150%] sm:w-[140%] left-1/2 translate-x-[-50%] md:max-w-[950px] lg:w-[120%] order-1 lg:order-2">
+                                <ProjectTag className={styles.projectTag} />
+                                <motion.div
+                                    initial={{ opacity: 0 }}
+                                    animate={{ opacity: 1 }}
+                                    transition={{ delay: 0.2, duration: 2 }}
+                                    className="relative w-full h-full aspect-[12/10]">
+                                    <Laptop screenImage="/images/vaul.png" isVisible={visible3} />
+                                </motion.div>
                             </div>
                         </>
                     )}
