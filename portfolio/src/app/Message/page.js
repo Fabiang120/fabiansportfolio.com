@@ -1,20 +1,42 @@
 "use client";
 import { motion } from "framer-motion";
+import { FiPhone, FiMail, FiMapPin } from "react-icons/fi";
 import { buttonVariants } from "../components/frameranims"
 
 export default function MessagePage() {
     return (
-        <div className="min-h-screen relative grid grid-cols-1 gap-12 lg:grid-cols-[1fr_1fr] lg:gap-40">
+        <div className="min-h-screen relative grid grid-cols-1 gap-12 lg:grid-cols-[1fr_1fr] lg:gap-40 ">
             <div className="contact-info border border-white justify-self-center self-center">
-                <h1>Get in touch</h1>
-                <p className="mt-4 text-[0.95rem] sm:text-base md:text-lg leading-relaxed text-gray-300">Phone</p>
-                <p className="text-white/90 text-[1rem] md:text-2xl font-semibold tracking-tight leading-tight">7863174619</p>
-                <p className="mt-4 text-[0.95rem] sm:text-base md:text-lg leading-relaxed text-gray-300">Email</p>
-                <p className="text-white/90 text-[1rem] md:text-2xl font-semibold tracking-tight leading-tight">sales@fabiansgeneralcorner.com</p>
-                <p className="mt-4 text-[0.95rem] sm:text-base md:text-lg leading-relaxed text-gray-300">City & State</p>
-                <p className="text-white/90 text-[1rem] md:text-2xl font-semibold tracking-tight leading-tight">Gainesville, Florida</p>
+                <h1 className="text-white/90 text-[2rem] sm:text-[2.5rem] md:text-5xl font-semibold tracking-tight leading-tight">Get in touch</h1>
+                <div className="flex items-center gap-6">
+                    <div className="w-14 h-14 rounded-full bg-cyan-500 flex items-center justify-center">
+                        <FiPhone size={24} />
+                    </div>
+                    <div>
+                        <p className="mt-4 text-[0.95rem] sm:text-base md:text-lg leading-relaxed text-gray-300">Phone</p>
+                        <p className="text-white/90 text-[1rem] md:text-2xl font-semibold tracking-tight leading-tight">7863174619</p>
+                    </div>
+                </div>
+                <div className="flex items-center gap-6">
+                    <div className="w-14 h-14 rounded-full bg-cyan-500 flex items-center justify-center">
+                        <FiMail size={24} />
+                    </div>
+                    <div>
+                        <p className="mt-4 text-[0.95rem] sm:text-base md:text-lg leading-relaxed text-gray-300">Email</p>
+                        <p className="text-white/90 text-[1rem] md:text-2xl font-semibold tracking-tight leading-tight">sales@fabiansgeneralcorner.com</p>
+                    </div>
+                </div>
+                <div className="flex items-center gap-6">
+                    <div className="w-14 h-14 rounded-full bg-cyan-500 flex items-center justify-center">
+                        <FiMapPin size={24} />
+                    </div>
+                    <div>
+                        <p className="mt-4 text-[0.95rem] sm:text-base md:text-lg leading-relaxed text-gray-300">City & State</p>
+                        <p className="text-white/90 text-[1rem] md:text-2xl font-semibold tracking-tight leading-tight">Gainesville, Florida</p>
+                    </div>
+                </div>
             </div>
-            <div className="contact-form border border-white p-8 rounded-xl bg-black/20 backdrop-blur-sm">
+            <div className="contact-form border border-white p-8 rounded-xl justify-self-center bg-black/20 backdrop-blur-sm">
                 <motion.div
                     initial={{ opacity: 0, y: 15 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -44,7 +66,7 @@ export default function MessagePage() {
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ delay: 0.4, duration: 1, type: 'tween' }}
                     whileHover="hover"
-                    className="px-4 py-2 mt-5 text-sm sm:text-base text-black font-medium rounded bg-cyan-500">Send Message</motion.button>
+                    className="px-4 py-2 mt-5 text-sm sm:text-base text-black font-medium bg-cyan-500">Send Message</motion.button>
                 <a
                     href="/"
                     className="px-6 py-3 bg-white text-black rounded-lg font-medium hover:bg-gray-200 transition-colors"
