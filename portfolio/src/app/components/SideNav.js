@@ -66,16 +66,16 @@ export default function SideNav() {
                             <ul
                                 className="list-none"
                             >
-                                <a href="#home" onClick={() => setIsOpen(false)}>
+                                <a href="/#home" onClick={() => setIsOpen(false)}>
                                     <li className="p-3 md:p-4 text-2xl md:text-3xl lg:text-4xl text-gray-300 hover:text-white cursor-pointer transition-colors">Home</li>
                                 </a>
-                                <a href="#projects" onClick={() => setIsOpen(false)}>
+                                <a href="/#projects" onClick={() => setIsOpen(false)}>
                                     <li className="p-3 md:p-4 text-2xl md:text-3xl lg:text-4xl text-gray-300 hover:text-white cursor-pointer transition-colors">Projects</li>
                                 </a>
-                                <a href="#connect" onClick={() => setIsOpen(false)}>
+                                <a href="/#connect" onClick={() => setIsOpen(false)}>
                                     <li className="p-3 md:p-4 text-2xl md:text-3xl lg:text-4xl text-gray-300 hover:text-white cursor-pointer transition-colors">Connect</li>
                                 </a>
-                                <a href="#other-work" onClick={() => setIsOpen(false)}>
+                                <a href="/#other-work" onClick={() => setIsOpen(false)}>
                                     <li className="p-3 md:p-4 text-2xl md:text-3xl lg:text-4xl text-gray-300 hover:text-white cursor-pointer transition-colors">Other Work</li>
                                 </a>
                             </ul>
