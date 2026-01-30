@@ -10,6 +10,7 @@ import styles from "./ProjectsSection.module.css";
 import { motion } from "framer-motion";
 import { buttonVariants } from "./frameranims"
 import { Perf } from 'r3f-perf'
+import { IoArrowForward } from "react-icons/io5";
 
 const Laptop = dynamic(() => import('./canvas/Laptop'));
 
@@ -67,7 +68,7 @@ export default function ProjectsSection() {
                     {mounted1 && (
                         <>
                             <div className={`${styles.textarea} w-[70%] lg:w-full justify-self-center lg:justify-self-start order-2 lg:order-1`}>
-                                <GiftBoxIcon className="text-cyan-400 mb-4" />
+                                <GiftBoxIcon className="text-cyan-300 mb-4" />
                                 <motion.h3
                                     initial={{ y: 20, opacity: 0 }}
                                     animate={{ y: 0, opacity: 1 }}
@@ -84,7 +85,15 @@ export default function ProjectsSection() {
                                     animate={{ y: 0, opacity: 1 }}
                                     transition={{ delay: 0.4, duration: 1, type: 'tween' }}
                                     whileHover="hover"
-                                    className="px-4 py-2 mt-5 text-sm sm:text-base text-black font-medium rounded bg-cyan-500" onClick={() => handleClick("PartingGift")}>View Project</motion.button>
+                                    className="
+                                    px-6
+                                    py-4
+                                    mt-8 
+                                    text-lg 
+                                    text-black 
+                                    font-semibold 
+                                    bg-cyan-300
+                                    [clip-path:polygon(0_0,100%_0,100%_78%,calc(100%-8px)_100%,0_100%)] flex items-center" onClick={() => handleClick("PartingGift")}>View Project <IoArrowForward size={20} className="inline ml-2" /></motion.button>
                             </div>
                             {/* 100vw to spread across viewport, lg is breakpoint for flex-row */}
                             {/* translate-x-30 to push to the right in lg, need to limit width of laptop wrapper on lg screens */}
@@ -108,7 +117,7 @@ export default function ProjectsSection() {
                     {mounted2 && (
                         <>
                             <div className={`${styles.textarea} w-[70%] justify-self-center lg:justify-self-start lg:w-full order-2 lg:order-1`}>
-                                <DogBone className="text-cyan-400 mb-4" />
+                                <DogBone className="text-cyan-300 mb-4" />
                                 <motion.h3
                                     initial={{ y: 20, opacity: 0 }}
                                     animate={{ y: 0, opacity: 1 }}
@@ -125,7 +134,16 @@ export default function ProjectsSection() {
                                     animate={{ y: 0, opacity: 1 }}
                                     transition={{ delay: 0.4, duration: 1, type: 'tween' }}
                                     whileHover="hover"
-                                    className="px-4 py-2 mt-5 text-sm sm:text-base text-black font-medium rounded bg-cyan-500" onClick={() => handleClick("FBA")}>View Project</motion.button>
+                                    className="
+                                    px-6
+                                    py-4
+                                    mt-8 
+                                    text-lg 
+                                    text-black 
+                                    font-semibold 
+                                    
+                                    bg-cyan-300
+                                    [clip-path:polygon(0_0,100%_0,100%_78%,calc(100%-8px)_100%,0_100%)] flex items-center" onClick={() => handleClick("FBA")}>View Project <IoArrowForward size={20} className="inline ml-2" /></motion.button>
                             </div>
                             <div className="laptop min-w-0 relative w-[200%] sm:w-[140%] left-1/2 translate-x-[-50%] md:max-w-[950px] lg:w-[120%] order-1 lg:order-2">
                                 <ProjectTag className={styles.projectTag} />
@@ -146,7 +164,7 @@ export default function ProjectsSection() {
                     {mounted3 && (
                         <>
                             <div className={`${styles.textarea} w-[70%] justify-self-center lg:justify-self-start lg:w-full order-2 lg:order-1`}>
-                                <Vault className="text-cyan-400 mb-4" />
+                                <Vault className="text-cyan-300 mb-4" />
                                 <motion.h3
                                     initial={{ y: 20, opacity: 0 }}
                                     animate={{ y: 0, opacity: 1 }}
@@ -163,7 +181,15 @@ export default function ProjectsSection() {
                                     animate={{ y: 0, opacity: 1 }}
                                     transition={{ delay: 0.4, duration: 1, type: 'tween' }}
                                     whileHover="hover"
-                                    className="px-4 py-2 mt-5 text-sm sm:text-base text-black font-medium rounded bg-cyan-500" onClick={() => handleClick("Vault")}>View Project</motion.button>
+                                    className="
+                                    px-6
+                                    py-4
+                                    mt-8
+                                    text-lg 
+                                    text-black 
+                                    font-semibold 
+                                    bg-cyan-300
+                                    [clip-path:polygon(0_0,100%_0,100%_78%,calc(100%-8px)_100%,0_100%)] flex items-center" onClick={() => handleClick("Vault")}>View Project <IoArrowForward size={20} className="inline ml-2" /></motion.button>
                             </div>
                             <div className="laptop min-w-0 relative w-[200%] sm:w-[140%] left-1/2 translate-x-[-50%] md:max-w-[950px] lg:w-[120%] order-1 lg:order-2">
                                 <ProjectTag className={styles.projectTag} />
