@@ -10,43 +10,46 @@ export default function MessagePage() {
     return (
         <>
             <SideNav />
-            <div className="min-h-screen relative grid grid-cols-1 gap-12 lg:grid-cols-[1fr_1fr] lg:gap-40 px-6 md:px-12 lg:px-20">
-                <div className="contact-info border border-white justify-self-center self-center">
-                    <h1 className="text-white/90 text-[2rem] sm:text-[2.5rem] md:text-5xl font-semibold tracking-tight leading-tight">Get in touch</h1>
-                    <div className="flex items-center gap-6">
-                        <div className="w-14 h-14 rounded-full bg-cyan-400 flex items-center justify-center">
+            <div className="min-h-screen relative grid grid-cols-1 gap-12 lg:grid-cols-[1fr_1fr] lg:gap-26 px-6 md:px-12 lg:px-20">
+                <div className="contact-info  justify-self-center self-center">
+                    <h1 className="text-white/80 text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight mb-8">Get In Touch</h1>
+                    <div className="flex items-center gap-5 mb-6">
+                        <div className="w-14 h-14 rounded-full bg-[#10c8e0] flex items-center justify-center">
                             <FiPhone size={24} />
                         </div>
                         <div>
-                            <p className="mt-4 text-[0.95rem] sm:text-base md:text-lg leading-relaxed text-gray-300">Phone</p>
-                            <p className="text-white/90 text-[1rem] md:text-2xl font-semibold tracking-tight leading-tight">7863174619</p>
+                            <p className="text-[0.95rem] sm:text-base md:text-lg leading-relaxed text-gray-300">Phone</p>
+                            <p className="text-white/90 text-[1rem] md:text-2xl font-semibold tracking-tight leading-tight">+1-786-317-4619</p>
                         </div>
                     </div>
-                    <div className="flex items-center gap-6">
-                        <div className="w-14 h-14 rounded-full bg-cyan-400 flex items-center justify-center">
+                    <div className="flex items-center gap-5 mb-6">
+                        <div className="w-14 h-14 rounded-full bg-[#10c8e0] flex items-center justify-center">
                             <FiMail size={24} />
                         </div>
                         <div>
-                            <p className="mt-4 text-[0.95rem] sm:text-base md:text-lg leading-relaxed text-gray-300">Email</p>
+                            <p className="text-[0.95rem] sm:text-base md:text-lg leading-relaxed text-gray-300">Email</p>
                             <p className="text-white/90 text-[1rem] md:text-2xl font-semibold tracking-tight leading-tight">sales@fabiansgeneralcorner.com</p>
                         </div>
                     </div>
-                    <div className="flex items-center gap-6">
-                        <div className="w-14 h-14 rounded-full bg-cyan-400 flex items-center justify-center">
+                    <div className="flex items-center gap-5 mb-6">
+                        <div className="w-14 h-14 rounded-full bg-[#10c8e0] flex items-center justify-center">
                             <FiMapPin size={24} />
                         </div>
                         <div>
-                            <p className="mt-4 text-[0.95rem] sm:text-base md:text-lg leading-relaxed text-gray-300">City & State</p>
+                            <p className="text-[0.95rem] sm:text-base md:text-lg leading-relaxed text-gray-300">City & State</p>
                             <p className="text-white/90 text-[1rem] md:text-2xl font-semibold tracking-tight leading-tight">Gainesville, Florida</p>
                         </div>
                     </div>
                 </div>
-                <div className="contact-form border border-white p-8 rounded-xl justify-self-center self-center">
+                <div className="contact-form p-8 rounded-xl justify-self-center self-center w-[80%]">
                     <motion.div
                         initial={{ opacity: 0, y: 15 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 1.2, ease: "easeOut" }}
                     >
+                        <p className="font-mono text-lg sm:text-xl text-white/70">
+                            #include &lt;your_idea.hpp&gt;
+                        </p>
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             version="1.0"
@@ -62,9 +65,9 @@ export default function MessagePage() {
                         </svg>
                     </motion.div>
                     <p className="mt-4 text-[0.95rem] sm:text-base md:text-lg leading-relaxed text-gray-300">Your email</p>
-                    <input type="email" className="bg-transparent border-b border-cyan-400 w-full py-2 mb-8 outline-none" />
+                    <input type="email" className="bg-transparent border-b border-cyan-400 w-full mb-8 outline-none" />
                     <p className="mt-4 text-[0.95rem] sm:text-base md:text-lg leading-relaxed text-gray-300">Message</p>
-                    <textarea className="bg-transparent border-b border-cyan-400 w-full py-2 mb-8 outline-none resize-none" rows={1} />
+                    <textarea className="bg-transparent border-b border-cyan-400 w-full mb-8 outline-none resize-none" rows={1} />
                     <motion.button
                         variants={buttonVariants}
                         initial={{ y: 20, opacity: 0 }}
