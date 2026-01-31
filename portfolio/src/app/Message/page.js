@@ -33,9 +33,26 @@ export default function MessagePage() {
         <>
             <SideNav />
             <div className="min-h-screen relative grid grid-cols-1 gap-12 lg:grid-cols-[1fr_1fr] lg:gap-26 p-8">
-                <div className="contact-info w-[80%] justify-self-center self-center">
-                    <h1 className="text-white/80 text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight mb-8">Get In Touch</h1>
-                    <div className="flex items-center gap-5 mb-6">
+                <motion.div
+                    className="contact-info w-[80%] justify-self-center self-center"
+                    initial={{ opacity: 0, x: -50 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.8, ease: "easeOut" }}
+                >
+                    <motion.h1
+                        className="text-white/80 text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight mb-8"
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.2, duration: 0.6 }}
+                    >
+                        Get In Touch
+                    </motion.h1>
+                    <motion.div
+                        className="flex items-center gap-5 mb-6"
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.3, duration: 0.6 }}
+                    >
                         <div className="w-14 h-14 rounded-full bg-[#10c8e0] flex items-center justify-center">
                             <FiPhone size={24} />
                         </div>
@@ -43,8 +60,13 @@ export default function MessagePage() {
                             <p className="text-[0.95rem] sm:text-base md:text-lg leading-relaxed text-gray-300">Phone</p>
                             <p className="text-white/90 text-[1rem] md:text-2xl font-semibold tracking-tight leading-tight">+17863174619</p>
                         </div>
-                    </div>
-                    <div className="flex items-center gap-5 mb-6">
+                    </motion.div>
+                    <motion.div
+                        className="flex items-center gap-5 mb-6"
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.4, duration: 0.6 }}
+                    >
                         <div className="w-14 h-14 rounded-full bg-[#10c8e0] flex items-center justify-center">
                             <FiMail size={24} />
                         </div>
@@ -52,8 +74,13 @@ export default function MessagePage() {
                             <p className="text-[0.95rem] sm:text-base md:text-lg leading-relaxed text-gray-300">Email</p>
                             <p className="text-white/90 text-[1rem] md:text-2xl font-semibold tracking-tight leading-tight">sales@fabiansgeneralcorner.com</p>
                         </div>
-                    </div>
-                    <div className="flex items-center gap-5 mb-6">
+                    </motion.div>
+                    <motion.div
+                        className="flex items-center gap-5 mb-6"
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.5, duration: 0.6 }}
+                    >
                         <div className="w-14 h-14 rounded-full bg-[#10c8e0] flex items-center justify-center">
                             <FiMapPin size={24} />
                         </div>
@@ -61,13 +88,18 @@ export default function MessagePage() {
                             <p className="text-[0.95rem] sm:text-base md:text-lg leading-relaxed text-gray-300">City & State</p>
                             <p className="text-white/90 text-[1rem] md:text-2xl font-semibold tracking-tight leading-tight">Gainesville, Florida</p>
                         </div>
-                    </div>
-                </div>
-                <div className="contact-form w-[80%] rounded-xl justify-self-center self-center">
+                    </motion.div>
+                </motion.div>
+                <motion.div
+                    className="contact-form w-[80%] rounded-xl justify-self-center self-center"
+                    initial={{ opacity: 0, x: 50 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.8, ease: "easeOut" }}
+                >
                     <motion.div
                         initial={{ opacity: 0, y: 15 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 1.2, ease: "easeOut" }}
+                        transition={{ delay: 0.3, duration: 0.8, ease: "easeOut" }}
                     >
                         <p className="font-mono text-lg sm:text-xl text-white/70">
                             #include &lt;your_idea.hpp&gt;
@@ -86,15 +118,45 @@ export default function MessagePage() {
                             </g>
                         </svg>
                     </motion.div>
-                    <p className="mt-4 text-[0.95rem] sm:text-base md:text-lg leading-relaxed text-gray-300">Your email</p>
-                    <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} className="bg-transparent border-b border-cyan-400 w-full mb-8 outline-none" />
-                    <p className="mt-4 text-[0.95rem] sm:text-base md:text-lg leading-relaxed text-gray-300">Message</p>
-                    <textarea value={message} onChange={(e) => setMessage(e.target.value)} className="bg-transparent border-b border-cyan-400 w-full mb-8 outline-none resize-none" rows={1} />
+                    <motion.p
+                        className="mt-4 text-[0.95rem] sm:text-base md:text-lg leading-relaxed text-gray-300"
+                        initial={{ opacity: 0, y: 15 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.5, duration: 0.6 }}
+                    >
+                        Your email
+                    </motion.p>
+                    <motion.input
+                        type="email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        className="bg-transparent border-b border-cyan-400 w-full mb-8 outline-none"
+                        initial={{ opacity: 0, y: 15 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.6, duration: 0.6 }}
+                    />
+                    <motion.p
+                        className="mt-4 text-[0.95rem] sm:text-base md:text-lg leading-relaxed text-gray-300"
+                        initial={{ opacity: 0, y: 15 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.7, duration: 0.6 }}
+                    >
+                        Message
+                    </motion.p>
+                    <motion.textarea
+                        value={message}
+                        onChange={(e) => setMessage(e.target.value)}
+                        className="bg-transparent border-b border-cyan-400 w-full mb-8 outline-none resize-none"
+                        rows={1}
+                        initial={{ opacity: 0, y: 15 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.8, duration: 0.6 }}
+                    />
                     <motion.button
                         variants={buttonVariants}
                         initial={{ y: 20, opacity: 0 }}
                         animate={{ y: 0, opacity: 1 }}
-                        transition={{ delay: 0.4, duration: 1, type: 'tween' }}
+                        transition={{ delay: 0.9, duration: 0.6, type: 'tween' }}
                         onClick={handleSubmit}
                         whileHover="hover"
                         className="px-6 py-4 mt-5 text-sm sm:text-base text-black font-semibold bg-cyan-300 [clip-path:polygon(0_0,100%_0,100%_78%,calc(100%-8px)_100%,0_100%)] flex items-center"
@@ -102,9 +164,16 @@ export default function MessagePage() {
                         <IoSend size={20} className="inline mr-2" />
                         Send Message
                     </motion.button>
-                    {status && <p className="text-cyan-400 mt-4">{status}</p>}
-                </div >
-            </div >
+                    {status && <motion.p
+                        className="text-cyan-400 mt-4"
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 0.3 }}
+                    >
+                        {status}
+                    </motion.p>}
+                </motion.div>
+            </div>
         </>
     );
 }
