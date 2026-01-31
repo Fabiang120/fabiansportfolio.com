@@ -1,17 +1,39 @@
 "use client";
 import { motion } from "framer-motion";
+import { useState } from 'react';
 import SideNav from "../components/SideNav";
-
 import { FiPhone, FiMail, FiMapPin } from "react-icons/fi";
 import { buttonVariants } from "../components/frameranims"
 import { IoSend } from "react-icons/io5"
 
+
+
 export default function MessagePage() {
+    const [email, setEmail] = useState('');
+    const [message, setMessage] = useState('');
+    const [status, setStatus] = useState('');
+    const handleSubmit = async () => {
+        const response = await fetch('/api/send', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email, message })
+        });
+
+        const data = await response.json();
+
+        if (data.success) {
+            setEmail('');
+            setMessage('');
+            setStatus('Message Sent!')
+        } else {
+            setStatus('Something Went Wrong')
+        }
+    };
     return (
         <>
             <SideNav />
-            <div className="min-h-screen relative grid grid-cols-1 gap-12 lg:grid-cols-[1fr_1fr] lg:gap-26 px-6 md:px-12 lg:px-20">
-                <div className="contact-info  justify-self-center self-center">
+            <div className="min-h-screen relative grid grid-cols-1 gap-12 lg:grid-cols-[1fr_1fr] lg:gap-26 p-8">
+                <div className="contact-info w-[80%] justify-self-center self-center">
                     <h1 className="text-white/80 text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight mb-8">Get In Touch</h1>
                     <div className="flex items-center gap-5 mb-6">
                         <div className="w-14 h-14 rounded-full bg-[#10c8e0] flex items-center justify-center">
@@ -19,7 +41,7 @@ export default function MessagePage() {
                         </div>
                         <div>
                             <p className="text-[0.95rem] sm:text-base md:text-lg leading-relaxed text-gray-300">Phone</p>
-                            <p className="text-white/90 text-[1rem] md:text-2xl font-semibold tracking-tight leading-tight">+1-786-317-4619</p>
+                            <p className="text-white/90 text-[1rem] md:text-2xl font-semibold tracking-tight leading-tight">+17863174619</p>
                         </div>
                     </div>
                     <div className="flex items-center gap-5 mb-6">
@@ -41,7 +63,7 @@ export default function MessagePage() {
                         </div>
                     </div>
                 </div>
-                <div className="contact-form p-8 rounded-xl justify-self-center self-center w-[80%]">
+                <div className="contact-form w-[80%] rounded-xl justify-self-center self-center">
                     <motion.div
                         initial={{ opacity: 0, y: 15 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -65,25 +87,22 @@ export default function MessagePage() {
                         </svg>
                     </motion.div>
                     <p className="mt-4 text-[0.95rem] sm:text-base md:text-lg leading-relaxed text-gray-300">Your email</p>
-                    <input type="email" className="bg-transparent border-b border-cyan-400 w-full mb-8 outline-none" />
+                    <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} className="bg-transparent border-b border-cyan-400 w-full mb-8 outline-none" />
                     <p className="mt-4 text-[0.95rem] sm:text-base md:text-lg leading-relaxed text-gray-300">Message</p>
-                    <textarea className="bg-transparent border-b border-cyan-400 w-full mb-8 outline-none resize-none" rows={1} />
+                    <textarea value={message} onChange={(e) => setMessage(e.target.value)} className="bg-transparent border-b border-cyan-400 w-full mb-8 outline-none resize-none" rows={1} />
                     <motion.button
                         variants={buttonVariants}
                         initial={{ y: 20, opacity: 0 }}
                         animate={{ y: 0, opacity: 1 }}
                         transition={{ delay: 0.4, duration: 1, type: 'tween' }}
+                        onClick={handleSubmit}
                         whileHover="hover"
-                        className="
-                        px-6
-                        py-4
-                        mt-5 
-                        text-sm 
-                        sm:text-base 
-                        text-black 
-                        font-semibold 
-                        bg-cyan-300
-                        [clip-path:polygon(0_0,100%_0,100%_78%,calc(100%-8px)_100%,0_100%)] flex items-center"> <IoSend size={20} className="inline mr-2" />Send Message</motion.button>
+                        className="px-6 py-4 mt-5 text-sm sm:text-base text-black font-semibold bg-cyan-300 [clip-path:polygon(0_0,100%_0,100%_78%,calc(100%-8px)_100%,0_100%)] flex items-center"
+                    >
+                        <IoSend size={20} className="inline mr-2" />
+                        Send Message
+                    </motion.button>
+                    {status && <p className="text-cyan-400 mt-4">{status}</p>}
                 </div >
             </div >
         </>

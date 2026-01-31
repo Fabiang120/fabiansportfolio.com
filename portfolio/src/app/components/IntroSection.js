@@ -18,7 +18,7 @@ export default function IntroSection() {
         return () => clearInterval(interval);
     }, []);
     return (
-        <section id="home" className="h-screen relative pl-20">
+        <section id="home" className="h-screen relative pl-20" style={{ fontFamily: 'Arial, Helvetica, sans-serif' }}>
             <motion.div
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
