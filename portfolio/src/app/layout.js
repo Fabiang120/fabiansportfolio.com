@@ -1,27 +1,16 @@
 import "./globals.css";
-import { Inter, Great_Vibes } from "next/font/google";
+import { Edu_SA_Beginner } from "next/font/google";
 
-const inter = Inter({ subsets: ["latin"] });
-const greatVibes = Great_Vibes({ weight: "400", subsets: ["latin"], variable: "--font-signature" });
-
-export const metadata = {
-  title: "fabiansportfolio",
-  description: "Fabian Garcia's Portfolio Website",
-  author: "Fabian Garcia",
-  charSet: "utf-8",
-  HandheldFriendly: "true",
-}
-
-export const viewport = {
-  width: "device-width",
-  initialScale: 1,
-};
-
+const eduSA = Edu_SA_Beginner({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
+  variable: '--font-body',
+});
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body className={`${greatVibes.variable}`}>
+    <html lang="en" className={eduSA.variable}>
+      <body className={eduSA.className}>
         {children}
       </body>
     </html>
