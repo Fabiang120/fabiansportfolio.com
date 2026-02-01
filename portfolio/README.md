@@ -1,36 +1,59 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Fabian's Portfolio
+
+A modern, interactive portfolio website built with Next.js, featuring 3D elements and smooth animations.
+
+## Prerequisites
+
+Before running this project, make sure you have **pnpm** installed on your machine.
+
+### Installing pnpm
+
+If you don't have pnpm installed, you can install it using one of these methods:
+
+```bash
+# Using npm
+npm install -g pnpm
+
+# Using Homebrew (macOS)
+brew install pnpm
+
+# Using Scoop (Windows)
+scoop install pnpm
+```
+
+For more installation options, visit the [pnpm installation guide](https://pnpm.io/installation).
 
 ## Getting Started
 
-First, run the development server:
+### 1. Navigate to the portfolio directory
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+cd portfolio
 ```
+
+### 2. Install dependencies
+
+```bash
+pnpm install
+```
+
+### 3. Run the development server
+
+```bash
+pnpm run dev
+```
+
+### 4. Open in browser
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Tech Stack
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **Framework**: [Next.js](https://nextjs.org)
+- **3D Graphics**: React Three Fiber
+- **Animations**: Framer Motion
+- **Styling**: CSS Modules
 
 ## Learn More
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+To learn more about Next.js, check out the [Next.js Documentation](https://nextjs.org/docs).
