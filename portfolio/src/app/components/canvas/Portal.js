@@ -55,7 +55,10 @@ export default function Portal() {
 
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
-      setVisible(entries[0].isIntersecting);
+      if (entries[0].isIntersecting) {
+        setVisible(true);
+        observer.disconnect();
+      }
     }, {
       threshold: 0.40
     });
@@ -67,9 +70,12 @@ export default function Portal() {
     return () => observer.disconnect();
   }, []);
   return (
-    <div className="relative w-full" style={{ minHeight: "150vh" }} ref={canvasRef}>
+    <div
+      className={`relative w-full transition-opacity duration-[2000ms] delay-[800ms] ${visible ? 'opacity-100' : 'opacity-0'}`}
+      style={{ minHeight: "150vh" }}
+      ref={canvasRef}>
       {/* Canvas layer - in front */}
-      <div className="absolute inset-0 z-10" style={{ pointerEvents: "none" }}>
+      <div className="absolute inset-0 z-10" style={{ pointerEvents: "none", willChange: "transform" }}>
         <Canvas frameloop={visible ? "always" : "never"} camera={{ position: [0, 2, 15], fov: 45 }} style={{ background: "transparent" }} gl={{ alpha: true }}>
           <ambientLight intensity={0.9} />
           <directionalLight position={[5, 5, 5]} intensity={1} />

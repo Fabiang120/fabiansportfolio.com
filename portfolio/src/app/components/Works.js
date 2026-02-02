@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 export default function Works() {
     return (
-        <section id="other-work" className="Works-section z-10 relative min-h-screen text-center flex flex-col items-center justify-center">
+        <section id="other-work" className="Works-section z-10 relative min-h-screen text-center flex flex-col items-center justify-center mt-[15rem] lg:mt-[40rem]">
             <div className="absolute z-20 left-1/2 -translate-x-1/2">
                 <motion.h2
                     initial={{ opacity: 0 }}
@@ -25,14 +25,9 @@ export default function Works() {
                 </motion.p>
             </div>
 
-            <motion.div
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true, amount: 0.4 }}
-                transition={{ delay: 0.8, duration: 2 }}
-                className="relative z-10 w-full">
+            <div className="relative z-10 w-full">
                 <Portal />
-            </motion.div>
+            </div>
         </section>
     );
 }
