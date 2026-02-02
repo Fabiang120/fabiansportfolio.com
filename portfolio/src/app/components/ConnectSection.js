@@ -3,10 +3,11 @@ import { useRouter } from 'next/navigation';
 import { motion } from "framer-motion";
 import { IoSend } from "react-icons/io5"
 
+
 export default function ConnectSection() {
     const router = useRouter();
     return (
-        <section id="connect" className="flex flex-col lg:flex-row items-center mb-24 relative z-0 overflow-visible lg:pl-[10rem]">
+        <section id="connect" className="flex flex-col lg:flex-row items-center lg:items-start mb-24 relative z-0 overflow-visible lg:pl-[10rem]">
             <div className="textarea z-10 w-[70%] lg:w-1/3">
                 <div className="intro py-5 flex items-start gap-4">
                     <motion.img
@@ -55,8 +56,8 @@ export default function ConnectSection() {
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true, amount: 0.3 }}
                 transition={{ delay: 2, duration: 2 }}
-                className="selfimage mt-5 lg:ml-100 flex-1 h-full">
-                Coming soon..
+                className="selfimage mt-20 flex-1 max-w-[600px] w-[70%] lg:mt-0 lg:flex lg:justify-center lg:translate-y-[29rem] lg:max-w-none">
+                <img src="/images/mountain.jpg" className="w-full lg:w-[480px]" />
             </motion.div>
         </section>
     );
