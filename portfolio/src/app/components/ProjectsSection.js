@@ -169,12 +169,12 @@ export default function ProjectsSection() {
                                     initial={{ y: 20, opacity: 0 }}
                                     animate={{ y: 0, opacity: 1 }}
                                     transition={{ delay: 2.4, duration: 1, type: 'tween' }}
-                                    className="text-white/90 text-[2rem] sm:text-[2.5rem] md:text-5xl font-semibold tracking-tight leading-tight">Vault</motion.h3>
+                                    className="text-white/90 text-[2rem] sm:text-[2.5rem] md:text-5xl font-semibold tracking-tight leading-tight">ConAmi</motion.h3>
                                 <motion.p
                                     initial={{ y: 20, opacity: 0 }}
                                     animate={{ y: 0, opacity: 1 }}
                                     transition={{ delay: 1.2, duration: 1, type: 'tween' }}
-                                    className="mt-4 text-[0.95rem] sm:text-base md:text-lg leading-relaxed text-gray-300">Time capsule social media app for storing and scheduling content to unlock with friends & family.</motion.p>
+                                    className="mt-4 text-[0.95rem] sm:text-base md:text-lg leading-relaxed text-gray-300">ConAmi a Spanish & English chatroom / Learning Platform, connects English and Spanish speakers to learn naturally through real conversations, culture exchange, and AI support.</motion.p>
                                 <motion.button
                                     variants={buttonVariants}
                                     initial={{ y: 20, opacity: 0 }}
@@ -198,7 +198,7 @@ export default function ProjectsSection() {
                                     animate={{ opacity: 1 }}
                                     transition={{ delay: 0.2, duration: 2 }}
                                     className="relative w-full h-full aspect-[12/10]">
-                                    <Laptop screenImage="/images/vaul.png" isVisible={visible3} />
+                                    <Laptop screenImage="/images/ConAmiPic.png" isVisible={visible3} />
                                 </motion.div>
                             </div>
                         </>
