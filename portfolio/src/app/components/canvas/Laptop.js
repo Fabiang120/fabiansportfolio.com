@@ -1,7 +1,7 @@
 import { useRef, useEffect, useMemo } from 'react';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { useGLTF, useTexture } from '@react-three/drei';
-import { Color } from 'three';
+import { Color, MeshBasicMaterial } from 'three';
 import { throttle } from 'lodash-es';
 import { useSpring } from 'framer-motion';
 
@@ -29,6 +29,7 @@ export function Model({ screenImage, isVisible, ...props }) {
   screenTexture.anisotropy = 16;
   screenTexture.flipY = false;
   screenTexture.generateMipmaps = false;
+  screenTexture.colorSpace = 'srgb';
   materials.Frame.color = new Color(0x1f2025);
 
   useEffect(() => {
@@ -73,11 +74,11 @@ export function Model({ screenImage, isVisible, ...props }) {
   });
 
   const screenMaterial = useMemo(() => {
-    const mat = materials.Screen.clone();
-    mat.map = screenTexture;
-    mat.color = new Color(0xffffff);
-    return mat;
-  }, [materials.Screen, screenTexture]);
+    return new MeshBasicMaterial({
+      map: screenTexture,
+      toneMapped: false
+    });
+  }, [screenTexture]);
 
   return (
     <group {...props} ref={groupRef} dispose={null}>
@@ -100,7 +101,7 @@ useGLTF.preload('/macbook-pro.glb');
 function Lights() {
   return (
     <>
-      <ambientLight intensity={1.2} />
+      <ambientLight intensity={1} />
       <directionalLight position={[0.5, 0, 0.866]} intensity={1.1} />
       <directionalLight position={[-6, 2, 2]} intensity={0.8} />
     </>
