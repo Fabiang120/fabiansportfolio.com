@@ -104,7 +104,7 @@ export default function ProjectsSection() {
                                     initial={{ opacity: 0 }}
                                     animate={{ opacity: 1 }}
                                     transition={{ delay: 0.2, duration: 2 }}
-                                    className="relative w-full h-full aspect-[12/10]">
+                                    className="relative w-full h-full aspect-12/10">
                                     <Laptop screenImage="/images/parting.png" isVisible={visible1} />
                                 </motion.div>
                             </div>
