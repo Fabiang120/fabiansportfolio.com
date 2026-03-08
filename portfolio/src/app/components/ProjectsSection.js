@@ -11,23 +11,31 @@ import { motion } from "framer-motion";
 import { buttonVariants } from "./frameranims"
 import { Perf } from 'r3f-perf'
 import { IoArrowForward } from "react-icons/io5";
-
 const Laptop = dynamic(() => import('./canvas/Laptop'));
+
+const btnClass = [
+    "px-6",
+    "py-4",
+    "mt-8",
+    "text-lg",
+    "text-black",
+    "font-semibold",
+    "bg-cyan-300",
+    "[clip-path:polygon(0_0,100%_0,100%_78%,calc(100%-8px)_100%,0_100%)]",
+    "flex items-center"
+].join(" ");
 
 export default function ProjectsSection() {
     const [visible1, setVisible1] = useState(false);
     const [visible2, setVisible2] = useState(false);
     const [visible3, setVisible3] = useState(false);
-
     const [mounted1, setMounted1] = useState(false);
     const [mounted2, setMounted2] = useState(false);
     const [mounted3, setMounted3] = useState(false);
-
     const project1Ref = useRef();
     const project2Ref = useRef();
     const project3Ref = useRef();
     const router = useRouter();
-
     const handleClick = (route) => {
         router.push(`/${route}`)
     }
@@ -85,19 +93,9 @@ export default function ProjectsSection() {
                                     animate={{ y: 0, opacity: 1 }}
                                     transition={{ delay: 0.4, duration: 1, type: 'tween' }}
                                     whileHover="hover"
-                                    className="
-                                    px-6
-                                    py-4
-                                    mt-8 
-                                    text-lg 
-                                    text-black 
-                                    font-semibold 
-                                    bg-cyan-300
-                                    [clip-path:polygon(0_0,100%_0,100%_78%,calc(100%-8px)_100%,0_100%)] flex items-center" onClick={() => handleClick("PartingGift")}>View Project <IoArrowForward size={20} className="inline ml-2" /></motion.button>
+                                    className={btnClass}
+                                    onClick={() => handleClick("PartingGift")}>View Project <IoArrowForward size={20} className="inline ml-2" /></motion.button>
                             </div>
-                            {/* 100vw to spread across viewport, lg is breakpoint for flex-row */}
-                            {/* translate-x-30 to push to the right in lg, need to limit width of laptop wrapper on lg screens */}
-                            {/* */}
                             <div className="laptop min-w-0 relative w-[200%] sm:w-[140%] left-1/2 translate-x-[-50%] md:max-w-[950px] lg:w-[120%] order-1 lg:order-2">
                                 <ProjectTag className={styles.projectTag} />
                                 <motion.div
@@ -111,7 +109,6 @@ export default function ProjectsSection() {
                         </>
                     )}
                 </div>
-
                 {/* Project 2 */}
                 <div ref={project2Ref} className="Project2 min-h-screen grid grid-cols-1 items-center gap-12 lg:grid-cols-[minmax(260px,32%)_1fr] lg:gap-8 relative">
                     {mounted2 && (
@@ -134,16 +131,8 @@ export default function ProjectsSection() {
                                     animate={{ y: 0, opacity: 1 }}
                                     transition={{ delay: 0.4, duration: 1, type: 'tween' }}
                                     whileHover="hover"
-                                    className="
-                                    px-6
-                                    py-4
-                                    mt-8 
-                                    text-lg 
-                                    text-black 
-                                    font-semibold 
-                                    
-                                    bg-cyan-300
-                                    [clip-path:polygon(0_0,100%_0,100%_78%,calc(100%-8px)_100%,0_100%)] flex items-center" onClick={() => handleClick("FBA")}>View Project <IoArrowForward size={20} className="inline ml-2" /></motion.button>
+                                    className={btnClass}
+                                    onClick={() => handleClick("FBA")}>View Project <IoArrowForward size={20} className="inline ml-2" /></motion.button>
                             </div>
                             <div className="laptop min-w-0 relative w-[200%] sm:w-[140%] left-1/2 translate-x-[-50%] md:max-w-[950px] lg:w-[120%] order-1 lg:order-2">
                                 <ProjectTag className={styles.projectTag} />
@@ -158,7 +147,6 @@ export default function ProjectsSection() {
                         </>
                     )}
                 </div>
-
                 {/* Project 3 */}
                 <div ref={project3Ref} className="Project3 min-h-screen grid grid-cols-1 items-center gap-12 lg:grid-cols-[minmax(260px,32%)_1fr] lg:gap-8 relative">
                     {mounted3 && (
@@ -181,15 +169,8 @@ export default function ProjectsSection() {
                                     animate={{ y: 0, opacity: 1 }}
                                     transition={{ delay: 0.4, duration: 1, type: 'tween' }}
                                     whileHover="hover"
-                                    className="
-                                    px-6
-                                    py-4
-                                    mt-8
-                                    text-lg 
-                                    text-black 
-                                    font-semibold 
-                                    bg-cyan-300
-                                    [clip-path:polygon(0_0,100%_0,100%_78%,calc(100%-8px)_100%,0_100%)] flex items-center" onClick={() => handleClick("Vault")}>View Project <IoArrowForward size={20} className="inline ml-2" /></motion.button>
+                                    className={btnClass}
+                                    onClick={() => handleClick("Vault")}>View Project <IoArrowForward size={20} className="inline ml-2" /></motion.button>
                             </div>
                             <div className="laptop min-w-0 relative w-[200%] sm:w-[140%] left-1/2 translate-x-[-50%] md:max-w-[950px] lg:w-[120%] order-1 lg:order-2">
                                 <ProjectTag className={styles.projectTag} />
