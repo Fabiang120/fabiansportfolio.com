@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useRef } from 'react';
 
-export default function Vault({ className }) {
+export default function ConAmi({ className }) {
     const pathRefs = useRef([]);
 
     useEffect(() => {
@@ -59,7 +59,7 @@ export default function Vault({ className }) {
                     Z
                 "
                 stroke="currentColor"
-                strokeWidth="2.5"
+                strokeWidth="5"
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 fill="none"
@@ -70,7 +70,7 @@ export default function Vault({ className }) {
                 ref={el => pathRefs.current[1] = el}
                 d="M 27 48 a 3 3 0 1 0 6 0 a 3 3 0 1 0 -6 0"
                 stroke="currentColor"
-                strokeWidth="2.5"
+                strokeWidth="5"
                 strokeLinecap="round"
                 fill="none"
             />
@@ -80,7 +80,7 @@ export default function Vault({ className }) {
                 ref={el => pathRefs.current[2] = el}
                 d="M 47 48 a 3 3 0 1 0 6 0 a 3 3 0 1 0 -6 0"
                 stroke="currentColor"
-                strokeWidth="2.5"
+                strokeWidth="5"
                 strokeLinecap="round"
                 fill="none"
             />
@@ -90,7 +90,7 @@ export default function Vault({ className }) {
                 ref={el => pathRefs.current[3] = el}
                 d="M 67 48 a 3 3 0 1 0 6 0 a 3 3 0 1 0 -6 0"
                 stroke="currentColor"
-                strokeWidth="2.5"
+                strokeWidth="5"
                 strokeLinecap="round"
                 fill="none"
             />

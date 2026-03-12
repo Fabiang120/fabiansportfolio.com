@@ -4,9 +4,9 @@ import { IoArrowForward } from "react-icons/io5";
 import SideNav from "../components/SideNav";
 import { buttonVariants } from "../components/frameranims";
 
-export default function PartingGiftsPage() {
+export default function ConAmiPage() {
     const handleClick = () => {
-        window.location.href = "https://github.com/Fabiang120/PartingGifts";
+        window.location.href = "https://github.com/Fabiang120/ConAmi";
     };
 
     return (
@@ -14,7 +14,7 @@ export default function PartingGiftsPage() {
             <SideNav />
             <div className="flex flex-col">
                 <div className="relative h-screen flex flex-col align-center">
-                    <img src="/images/partinghero.jpg" alt="Parting Gifts App" className="absolute inset-0 w-full h-full opacity-25 -z-10 object-cover" />
+                    <img src="/images/conamihero.jpg" alt="ConAmi Platform" className="absolute inset-0 w-full h-full opacity-25 -z-10 object-cover" />
                     <div className="absolute inset-0 -z-10 bg-gradient-to-b from-transparent via-transparent to-[#111111]" />
                     <div className="absolute inset-0 -z-10 bg-gradient-to-r from-transparent via-transparent to-[#111111]" />
                     <div className="absolute inset-0 -z-10 bg-gradient-to-l from-transparent via-transparent to-[#111111]" />
@@ -24,19 +24,19 @@ export default function PartingGiftsPage() {
                             whileInView={{ y: 0, opacity: 1 }}
                             viewport={{ once: true }}
                             transition={{ delay: 1.2, duration: 1, type: 'tween' }}
-                            className="mt-4 text-lg sm:text-xl md:text-2xl leading-relaxed text-cyan-300">Go, React, Vite, Tailwind CSS, Three.js, SQLite</motion.p>
+                            className="mt-4 text-lg sm:text-xl md:text-2xl leading-relaxed text-cyan-300">Python, Next.js, React, Tailwind CSS, FastAPI, PostgreSQL</motion.p>
                         <motion.h1
                             initial={{ y: 20, opacity: 0 }}
                             whileInView={{ y: 0, opacity: 1 }}
                             viewport={{ once: true }}
                             transition={{ delay: 2.4, duration: 1, type: 'tween' }}
-                            className="text-white/90 text-[2rem] sm:text-[3rem] md:text-5xl font-semibold tracking-tight leading-tight max-w-xl">Parting Gifts</motion.h1>
+                            className="text-white/90 text-[2rem] sm:text-[3rem] md:text-5xl font-semibold tracking-tight leading-tight max-w-xl">ConAmi</motion.h1>
                         <motion.p
                             initial={{ y: 20, opacity: 0 }}
                             whileInView={{ y: 0, opacity: 1 }}
                             viewport={{ once: true }}
                             transition={{ delay: 3.0, duration: 1, type: 'tween' }}
-                            className="mt-4 text-lg sm:text-xl md:text-2xl leading-relaxed text-gray-300 max-w-lg">Led backend development and co-architected Parting Gifts, a digital will and scheduled asset delivery platform.</motion.p>
+                            className="mt-4 text-lg sm:text-xl md:text-2xl leading-relaxed text-gray-300 max-w-lg">Co-architected and developed ConAmi in a three-person team, a language exchange platform connecting English and Spanish speakers through real-time conversation.</motion.p>
                     </div>
                 </div>
 
@@ -47,13 +47,13 @@ export default function PartingGiftsPage() {
                             whileInView={{ y: 0, opacity: 1 }}
                             viewport={{ once: true }}
                             transition={{ delay: 1.2, duration: 1, type: 'tween' }}
-                            className="text-white/90 text-[1.5rem] sm:text-[2rem] md:text-4xl font-semibold tracking-tight leading-tight max-w-lg">The Purpose</motion.h2>
+                            className="text-white/90 text-[1.5rem] sm:text-[2rem] md:text-4xl font-semibold tracking-tight leading-tight max-w-lg">The Mission</motion.h2>
                         <motion.p
                             initial={{ y: 20, opacity: 0 }}
                             whileInView={{ y: 0, opacity: 1 }}
                             viewport={{ once: true }}
                             transition={{ delay: 2.4, duration: 1, type: 'tween' }}
-                            className="mt-4 text-lg sm:text-xl md:text-2xl leading-relaxed text-gray-300 text-pretty max-w-xl">My goal with this application was to help ease the burden of losing a loved one. I wanted to create a platform where people can record memorial videos and securely manage their wills, helping their families avoid extensive legal battles, something I experienced in the past and wanted to make easier for others.</motion.p>
+                            className="mt-4 text-lg sm:text-xl md:text-2xl leading-relaxed text-gray-300 text-pretty max-w-xl">My group and I wanted to help connect people in the US with individuals in Latin and Hispanic countries, providing a chance to learn Spanish directly from those who want to teach or simply have conversations. Learning a new language often comes with the fear of speaking, so our mission with ConAmi is to remove that fear by making language exchange approachable, seamless, and human-centered.</motion.p>
                     </div>
                     <motion.img
                         initial={{ y: 20, opacity: 0 }}
@@ -61,7 +61,7 @@ export default function PartingGiftsPage() {
                         viewport={{ once: true }}
                         transition={{ delay: 3.6, duration: 1, type: 'tween' }}
                         className="w-full aspect-[16/9] md:aspect-[21/9] object-fill"
-                        src="/images/parting.png" alt="Parting Gifts UI" />
+                        src="/images/ConAmi2.png" alt="ConAmi App Interface" />
                 </div>
 
                 <div className="mt-45 h-screen px-6 sm:px-16 md:px-40 lg:px-80 py-45 flex flex-col justify-center items-center">
@@ -77,7 +77,7 @@ export default function PartingGiftsPage() {
                             whileInView={{ y: 0, opacity: 1 }}
                             viewport={{ once: true }}
                             transition={{ delay: 2.4, duration: 1, type: 'tween' }}
-                            className="mt-4 text-lg sm:text-xl md:text-2xl leading-relaxed text-gray-300 text-pretty max-w-xl">Built a Go REST API with authentication and documented it via Swagger. Developed a React frontend using Vite with WebRTC video capture and interactive Three.js components, establishing reliable system flows via Cypress and Vitest.</motion.p>
+                            className="mt-4 text-lg sm:text-xl md:text-2xl leading-relaxed text-gray-300 text-pretty max-w-xl">Designed the full-stack architecture, implementing a Next.js and React frontend communicating via REST APIs to a FastAPI backend. Engineered the database with PostgreSQL and SQLAlchemy for persistent user and messaging data, utilizing Alembic for database migrations.</motion.p>
                     </div>
                 </div>
 
@@ -94,7 +94,7 @@ export default function PartingGiftsPage() {
                             whileInView={{ y: 0, opacity: 1 }}
                             viewport={{ once: true }}
                             transition={{ delay: 2.4, duration: 1, type: 'tween' }}
-                            className="mt-4 text-lg sm:text-xl md:text-2xl leading-relaxed text-gray-300 text-pretty max-w-xl">We worked in sprint cycles with detailed backlogging, delivering on all of them to publish a fully functional app capable of recording any type of file. By following Scrum practices, our incremental releases ensured end-to-end functionality matched our original Figma design flows, and we hope to see the platform adopted by larger organizations or officially launched on the App Store in the future.</motion.p>
+                            className="mt-4 text-lg sm:text-xl md:text-2xl leading-relaxed text-gray-300 text-pretty max-w-xl">We are currently in the process of building this app, working in sprint cycles with detailed backlogging. We plan to add AI conversation support within the chats, and we hope to see the platform officially launched on the App Store in the future.</motion.p>
                         <motion.button
                             variants={buttonVariants}
                             initial={{ y: 20, opacity: 0 }}
