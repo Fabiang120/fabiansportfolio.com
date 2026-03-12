@@ -2,7 +2,7 @@
 import dynamic from 'next/dynamic'
 import GiftBoxIcon from "./icons/GiftBoxIcon";
 import DogBone from "./icons/DogBone";
-import Vault from "./icons/Vault";
+import ConAmi from "./icons/ConAmi";
 import ProjectTag from "./ProjectTag";
 import { useRouter } from 'next/navigation';
 import { useState, useRef, useEffect } from "react";
@@ -152,7 +152,7 @@ export default function ProjectsSection() {
                     {mounted3 && (
                         <>
                             <div className={`${styles.textarea} w-[70%] justify-self-center lg:justify-self-start lg:w-full order-2 lg:order-1`}>
-                                <Vault className="text-cyan-300 mb-4" />
+                                <ConAmi className="text-cyan-300 mb-4" />
                                 <motion.h3
                                     initial={{ y: 20, opacity: 0 }}
                                     animate={{ y: 0, opacity: 1 }}
@@ -170,7 +170,7 @@ export default function ProjectsSection() {
                                     transition={{ delay: 0.4, duration: 1, type: 'tween' }}
                                     whileHover="hover"
                                     className={btnClass}
-                                    onClick={() => handleClick("Vault")}>View Project <IoArrowForward size={20} className="inline ml-2" /></motion.button>
+                                    onClick={() => handleClick("ConAmi")}>View Project <IoArrowForward size={20} className="inline ml-2" /></motion.button>
                             </div>
                             <div className="laptop min-w-0 relative w-[200%] sm:w-[140%] left-1/2 translate-x-[-50%] md:max-w-[950px] lg:w-[120%] order-1 lg:order-2">
                                 <ProjectTag className={styles.projectTag} />
