@@ -58,9 +58,14 @@ export default function IntroSection() {
                     transition={{ delay: 1.2, duration: 2 }}
                     className="flex items-center gap-3 mt-4">
                     <span className={`${styles.gradientText} text-5xl font-semibold `}>+</span>
-                    <span className="text-3xl md:text-5xl font-normal text-white/70">{currentSkill}</span>
+                    <span key={currentSkill} className={`${styles.skill} text-3xl md:text-5xl font-normal text-white/70`}>{currentSkill}</span>
                 </motion.div>
             </div>
-        </section >
+            <div className="absolute bottom-20 left-[50%] translate-x-[-50%]">
+                <span className={`${styles.arrow}`}></span>
+                <span className={`${styles.arrow}`}></span>
+                <span className={`${styles.arrow}`}></span>
+            </div>
+        </section>
     );
 }
