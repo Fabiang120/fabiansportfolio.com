@@ -3,6 +3,7 @@ import dynamic from 'next/dynamic'
 import styles from "./IntroSection.module.css";
 import { useState, useEffect } from "react";
 import { motion } from 'framer-motion';
+import ScrollIndicator from './ScrollIndicator/ScrollIndicator';
 const DisplacementSphere = dynamic(() => import("./canvas/DisplacementSphere").then(mod => mod.DisplacementSphere)
 );
 
@@ -36,6 +37,7 @@ export default function IntroSection() {
                     transition={{ delay: 0.4, duration: 2 }}
                     aria-hidden="true" className={`${styles.fabian} uppercase font-black tracking-tighter leading-none`}>Fabian</motion.div>
                 <div>
+                    
                     <motion.h1
                         initial={{ opacity: 0 }}
                         whileInView={{ opacity: 1 }}
@@ -61,11 +63,7 @@ export default function IntroSection() {
                     <span key={currentSkill} className={`${styles.skill} text-3xl md:text-5xl font-normal text-white/70`}>{currentSkill}</span>
                 </motion.div>
             </div>
-            <div className="absolute bottom-20 left-[50%] translate-x-[-50%]">
-                <span className={`${styles.arrow}`}></span>
-                <span className={`${styles.arrow}`}></span>
-                <span className={`${styles.arrow}`}></span>
-            </div>
+            <ScrollIndicator className="absolute bottom-20 left-[50%] translate-x-[-50%]" />
         </section>
     );
 }
