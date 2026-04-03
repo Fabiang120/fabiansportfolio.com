@@ -76,6 +76,7 @@ export default function Portal() {
       ref={canvasRef}>
       {/* Canvas layer - in front */}
       <div className="absolute inset-0 z-10" style={{ pointerEvents: "none", willChange: "transform" }}>
+        <div className="absolute inset-0 z-20 pointer-events-auto" />
         <Canvas frameloop={visible ? "always" : "never"} camera={{ position: [0, 2, 15], fov: 45 }} style={{ background: "transparent" }} gl={{ alpha: true }}>
           <ambientLight intensity={0.9} />
           <directionalLight position={[5, 5, 5]} intensity={1} />

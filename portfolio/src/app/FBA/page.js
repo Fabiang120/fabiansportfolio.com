@@ -27,7 +27,7 @@ export default function FBAPage({ portal }) {
 
     return (
         <>
-            <SideNav />
+            <SideNav portal={portal} />
             <div className="flex flex-col">
                 <div className="relative h-screen flex flex-col align-center">
                     <img
